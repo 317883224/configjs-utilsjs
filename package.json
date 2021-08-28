@@ -1,0 +1,15 @@
+{
+  "name": "configjs-utilsjs",
+  "version": "1.1.2",
+  "description": "工具类",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "config",
+    "工具类"
+  ],
+  "author": "FYR",
+  "license": "ISC"
+}
