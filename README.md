@@ -1,51 +1,75 @@
 # configjs-utilsjs
 
-### 简要说明
+### 介绍
+
+configjs-utilsjs 是317883224开源的纯js方法库, 包含：时间转换，数字转换金钱格式等。
+
+## 特性
+
+- 纯 js
+ 
+## 安装
+
+```bash
+# npm：
+npm i configjs-utilsjs -S
 ```
-主要是整合写过的 js 原生插件。如：时间转换，数字转换金钱格式等
+ 
+## 快速上手
 
-1.1.2版本更新，1，修复千分符方法 bug，2，修复首字母大写 bug。
-1.0.9版本更新，formatMoney 方法新增 separators 参数，并优化。
+```js
+import { formatTimes } from 'configjs-utilsjs';
+
+const time = formatTimes(new Date(), 'yyyy-MM-dd');
+console.log(time)
 ```
-
-# 文档
-
-### formatMoney（数字格式化为金钱）
+ 
+## 版本
+*  [1.1.2]。
+	+ 修复千分符方法 bug
+	+ 修复首字母大写 bug
+*  [1.0.9]
+	+ formatMoney 方法新增 separators 参数
+ 
+ 
+## 文档
+ 
+#### formatMoney（数字格式化为金钱）
 ##### 属性 attr
 参数 | 说明 | 类型 | 可选值 | 默认值 
 :-: | :-: | :-: | :-: | :-: 
 参数1 | 需要转金钱格式的值 | string number | -- | -- 
 参数2 | 金钱保留小数位 | number | -- | -- 
-
-
-### capitalize（首字母大写）
+ 
+ 
+#### capitalize（首字母大写）
 ##### 属性 attr
 参数 | 说明 | 类型 | 可选值 | 默认值 
 :-: | :-: | :-: | :-: | :-: 
 参数1 | 首字母大写 | string | -- | -- 
-
-
-### appendScript（body 添加 js 标签）
+ 
+ 
+#### appendScript（body 添加 js 标签）
 ##### 属性 attr
 参数 | 说明 | 类型 | 可选值 | 默认值 
 :-: | :-: | :-: | :-: | :-: 
 参数1 | 添加的 js 标签链接 | url | -- | -- 
-
-
-### appendLink（body 添加 css 标签）
+ 
+ 
+#### appendLink（body 添加 css 标签）
 ##### 属性 attr
 参数 | 说明 | 类型 | 可选值 | 默认值 
 :-: | :-: | :-: | :-: | :-: 
 参数1 | 添加的 css 标签链接 | url | -- | -- 
-
-
-### formatTimes（时间转换）
+ 
+ 
+#### formatTimes（时间转换）
 ##### 属性 attr
 参数 | 说明 | 类型 | 可选值 | 默认值 
 :-: | :-: | :-: | :-: | :-: 
 参数1 | 时间 | array[data] date | -- | new date 
 参数2 | 时间转换类型 | string | 具体写法看详情 | 'yyyy-MM-dd hh:mm:ss' 
-
+ 
 ##### format 详情说明
 参数 | 说明 | 范围
 :-: | :-: | :-:
@@ -59,9 +83,9 @@ q | 季度 | 1~2
 S | 毫秒 | 1
 t | 时间戳 | 1
 w | 星期 | 1
-
-
-### generateDateTimes（根据开始结束时间生成连续的时间数组）
+ 
+ 
+#### generateDateTimes（根据开始结束时间生成连续的时间数组）
 ##### 属性 attr
 参数 | 说明 | 类型 | 可选值 | 默认值 
 :-: | :-: | :-: | :-: | :-: 
@@ -69,25 +93,34 @@ w | 星期 | 1
 参数2 | 结束时间 | date | -- | -- 
 参数3 | 根据时间中的值来生成数组 | string | y,M,d | d 
 参数4 | 时间转换类型 | string | 同时间转换方法 | new Date()
-
-
-### formatStringDateTimes（根据传进的数组字符串或者字符串生成相应的时间）
+ 
+ 
+#### formatStringDateTimes（根据传进的数组字符串或者字符串生成相应的时间）
 ##### 属性 attr
 参数 | 说明 | 类型 | 可选值 | 默认值 
 :-: | :-: | :-: | :-: | :-: 
 参数1 | 需要转换的数据 | array[data] date | -- | -- 
 参数2 |  时间转换类型 | string | 同时间转换方法 | new Date() 
-
-
-### setUnicode（unicode加密工具）
+ 
+ 
+#### setUnicode（unicode加密工具）
 ##### 属性 attr
 参数 | 说明 | 类型 | 可选值 | 默认值 
 :-: | :-: | :-: | :-: | :-: 
 参数1 | 需要加密的值 | string | -- | -- 
-
-
-### getUnicode（unicode解码工具）
+ 
+ 
+#### getUnicode（unicode解码工具）
 ##### 属性 attr
 参数 | 说明 | 类型 | 可选值 | 默认值 
 :-: | :-: | :-: | :-: | :-: 
 参数1 | 需要解码的值 | string | -- | -- 
+ 
+ 
+## 联系方式
+
+- [Email](317883224@qq.com)。
+
+## 链接
+
+- [NPM](https://www.npmjs.com/package/configjs-utilsjs)
