@@ -1,15 +1,36 @@
 {
-  "name": "configjs-utilsjs",
-  "version": "1.1.2",
-  "description": "工具类",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [
-    "config",
-    "工具类"
-  ],
-  "author": "FYR",
-  "license": "ISC"
+	"name": "configjs-utilsjs",
+	"version": "1.1.2",
+	"description": "工具类",
+	"main": "lib/interceptor3.umd.min.js",
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "npm run lib",
+		"lint": "vue-cli-service lint",
+		"lib": "vue-cli-service build --target lib --name vue-animation-number --dest lib packages/index.js"
+	},
+	"dependencies": {
+		"core-js": "^3.6.5",
+		"vue": "^2.6.11"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "~4.5.0",
+		"@vue/cli-plugin-eslint": "~4.5.0",
+		"@vue/cli-service": "~4.5.0",
+		"@vue/eslint-config-standard": "^5.1.2",
+		"babel-eslint": "^10.1.0",
+		"eslint": "^6.7.2",
+		"eslint-plugin-import": "^2.20.2",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-promise": "^4.2.1",
+		"eslint-plugin-standard": "^4.0.0",
+		"eslint-plugin-vue": "^6.2.2",
+		"vue-template-compiler": "^2.6.11"
+	},
+	"keywords": [
+		"config",
+		"工具类"
+	],
+	"author": "FYR",
+	"license": "ISC"
 }
