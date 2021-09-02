@@ -27,5 +27,6 @@ module.exports = {
 		config.plugins.delete('hmr');
 		config.entryPoints.delete('app');
 	},
-	productionSourceMap: false
+	productionSourceMap: false,
+	lintOnSave: false,
 }
