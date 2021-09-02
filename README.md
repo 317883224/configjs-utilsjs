@@ -1,8 +1,7 @@
 # configjs-utilsjs
 
 ### 介绍
-
-configjs-utilsjs 是317883224开源的纯js方法库, 包含：时间转换，数字转换金钱格式等。
+configjs-utilsjs 是由 317883224 开源的纯js方法库, 包含：时间转换，数字转换金钱格式等。
 
 ## 特性
 
@@ -11,7 +10,7 @@ configjs-utilsjs 是317883224开源的纯js方法库, 包含：时间转换，�
 ## 安装
 
 ```bash
-# npm：
+# NPM：
 npm i configjs-utilsjs -S
 ```
  
@@ -20,15 +19,15 @@ npm i configjs-utilsjs -S
 ```js
 import { formatTimes } from 'configjs-utilsjs';
 
-const time = formatTimes(new Date(), 'yyyy-MM-dd');
-console.log(time)
+const time = formatTimes( new Date(), 'yyyy-MM-dd' );
+console.log( time )
 ```
  
 ## 版本
-*  [1.1.2]。
+*  [ 1.1.2 ]。
 	+ 修复千分符方法 bug
 	+ 修复首字母大写 bug
-*  [1.0.9]
+*  [ 1.0.9 ]
 	+ formatMoney 方法新增 separators 参数
  
  
