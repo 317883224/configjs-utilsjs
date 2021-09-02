@@ -5,6 +5,12 @@ examples
 vue.config.js
 package-lock.json
 public
+.browserslistrc
+.editorconfig
+.eslintrc
+.gitignore
+babel.config
+vue.config
 
 # local env files
 .env.local
