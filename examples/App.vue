@@ -5,6 +5,10 @@
 </template>
 
 <script>
+	import Vue from 'vue';
+	import configjsutilsjs from 'configjs-utilsjs';
+	Vue.use(configjsutilsjs);
+	
 export default {
   name: 'App',
   mounted() {

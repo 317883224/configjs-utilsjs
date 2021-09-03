@@ -9,8 +9,12 @@ public
 .editorconfig
 .eslintrc
 .gitignore
-babel.config
+babel.config.js
 vue.config
+*.map
+*.html
+lib/configjs-utilsjs.common.js
+lib/configjs-utilsjs.umd.js
 
 # local env files
 .env.local
