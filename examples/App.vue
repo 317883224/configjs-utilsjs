@@ -6,13 +6,13 @@
 
 <script>
 	import Vue from 'vue';
-	import configjsutilsjs from 'configjs-utilsjs';
+	import configjsutilsjs from '../packages/index.js';
 	Vue.use(configjsutilsjs);
 	
 export default {
   name: 'App',
   mounted() {
-  	console.log(this.$configjsutilsjs.capitalize('asdasd'))
+  	console.log(this.$configjsutilsjs.generateDateTimes('2021-6-1', '2021-7-1', 'd', 'yyyy-MM-dd'))
   }
 }
 </script>

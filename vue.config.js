@@ -23,6 +23,25 @@ function getEntries(path) {
 	return entries
 }
 
+// 开发独有配置
+let devConfig = {
+	
+}
+
+// 生产独有配置
+let proConfig = {
+	configureWebpack: {
+		entry: getEntries('packages'),
+		output: {
+			filename: '[name]/index.js',
+			libraryTarget: 'commonjs2',
+		}
+	},
+	css: { extract: false },
+	productionSourceMap: false,
+}
+
+// 全部配置
 module.exports = {
 	// 修改 src 目录 为 examples 目录
 	pages: {
@@ -53,18 +72,6 @@ module.exports = {
 		config.plugins.delete('hmr');
 		config.entryPoints.delete('app');
 	},
-	configureWebpack: {
-		entry: {
-			index: resolve('packages/index.js'),
-			capitalize: resolve('packages/capitalize/index.js'),
-			formatMoney: resolve('packages/formatMoney/index.js'),
-		},
-		output: {
-			filename: '[name]/index.js',
-			libraryTarget: 'commonjs2',
-		}
-	},
-	css: { extract: false },
-	productionSourceMap: false,
 	lintOnSave: false,
+	...(process.env.NODE_ENV === 'development'? devConfig : proConfig),
 }

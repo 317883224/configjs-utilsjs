@@ -53,6 +53,4 @@ function formatTimes(times = new Date(), format = 'yyyy-MM-dd hh:mm:ss') {
 	return timesType ? times : times[0];
 }
 
-export default {
-	formatTimes,
-}
+export default formatTimes
