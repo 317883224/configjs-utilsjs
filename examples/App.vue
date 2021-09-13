@@ -12,7 +12,7 @@
 export default {
   name: 'App',
   mounted() {
-  	console.log(this.$configjsutilsjs.generateDateTimes('2021-6-1', '2021-7-1', 'd', 'yyyy-MM-dd'))
+  	console.log(this.$configjsutilsjs.formatMoney(12312312312))
   }
 }
 </script>

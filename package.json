@@ -1,8 +1,10 @@
 {
 	"name": "configjs-utilsjs",
-	"version": "2.1.3",
+	"version": "2.1.4",
 	"description": "工具类",
 	"main": "lib/index/index.js",
+	"repository": "https://github.com/317883224/configjs-utilsjs",
+	"homepage": "https://www.npmjs.com/package/configjs-utilsjs",
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",

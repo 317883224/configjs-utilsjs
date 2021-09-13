@@ -7,6 +7,15 @@ configjs-utilsjs 是317883224开源的纯js方法库, 包含：时间转换，�
 ## 特性
 
 - 纯 js
+
+## 版本
+*  [2.1.3]
+	+ 修改打包架构，配置按需加载功能
+*  [1.1.2]
+	+ 修复千分符方法 bug
+	+ 修复首字母大写 bug
+*  [1.0.9]
+	+ formatMoney 方法新增 separators 参数
  
 ## 安装
 
@@ -16,22 +25,28 @@ npm i configjs-utilsjs -S
 ```
  
 ## 快速上手
-
+ 
+### [推荐]按需加载
 ```js
+// 需要引入的模块
 import { formatTimes } from 'configjs-utilsjs';
 
 const time = formatTimes(new Date(), 'yyyy-MM-dd');
 console.log(time)
 ```
  
-## 版本
-*  [1.1.2]。
-	+ 修复千分符方法 bug
-	+ 修复首字母大写 bug
-*  [1.0.9]
-	+ formatMoney 方法新增 separators 参数
- 
- 
+### 全局引入
+```js
+// main.js
+import Vue from 'vue';
+import configjsutilsjs from 'configjs-utilsjs';
+Vue.use(configjsutilsjs);
+
+// 在 vue 模块中
+const time = this.$configjsutilsjs.formatTimes(new Date(), 'yyyy-MM-dd');
+console.log(time)
+```
+
 ## 文档
  
 #### formatMoney（数字格式化为金钱）
@@ -119,8 +134,9 @@ w | 星期 | 1
  
 ## 联系方式
 
-- [Email](317883224@qq.com)。
+- qq 317883224@qq.com
 
 ## 链接
 
 - [NPM](https://www.npmjs.com/package/configjs-utilsjs)
+- [GITHUB](https://github.com/317883224/configjs-utilsjs)
