@@ -1,13 +1,14 @@
 // 全局导入所有函数
-const fun = (r => {
-	let _modules = {};
-	r.keys().forEach(
-		key => {
-			if(key !== './index.js') _modules[key.replace(/^(.*\/)(.+)(\/.*)/, '$2')] = r(key).default;
-		}
-	)
-	return _modules;
-})(require.context('.', true, /\.js$/));
+// const fun = (r => {
+// 	let _modules = {};
+// 	r.keys().forEach(
+// 		key => {
+// 			if(key !== './index.js') _modules[key.replace(/^(.*\/)(.+)(\/.*)/, '$2')] = r(key).default;
+// 		}
+// 	)
+// 	return _modules;
+// })(require.context('.', true, /\.js$/));
+import formatMoney from './formatMoney/index.js';
 
 // 以数组的结构保存组件，便于遍历
 const components = [
@@ -22,7 +23,7 @@ const install = function (Vue) {
         Vue.component(component.name, component)
     })
 	// 便利并注册方法
-	Vue.prototype.$configjsutilsjs = fun;
+	// Vue.prototype.$configjsutilsjs = fun;
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
@@ -33,7 +34,8 @@ export default {
     // 导出的对象必须具备一个 install 方法
     install,
 	// 方法
-	...fun,
+	// ...fun,
     // 组件列表
-    ...components
+    ...components,
+	formatMoney:formatMoney,
 }

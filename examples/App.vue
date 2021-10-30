@@ -6,13 +6,14 @@
 
 <script>
 	import Vue from 'vue';
-	import configjsutilsjs from '../packages/index.js';
-	Vue.use(configjsutilsjs);
+	import {
+		formatMoney,
+	} from '../packages/index.js';
 	
 export default {
   name: 'App',
   mounted() {
-  	console.log(this.$configjsutilsjs.formatMoney(12312312312))
+  	console.log(formatMoney(12312312312))
   }
 }
 </script>
