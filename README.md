@@ -30,6 +30,18 @@ npm i configjs-utilsjs -S
  
 ### [推荐]按需加载
 ```js
+// npm
+npm i babel-plugin-import -D
+
+// babel.config.js
+plugins: [
+	['import', {
+		libraryName: 'configjs-utilsjs',
+		camel2DashComponentName: false, // 是否需要驼峰转短线
+		camel2UnderlineComponentName: false, // 是否需要驼峰转下划线
+	}, 'configjs-utilsjs'],
+]
+
 // 需要引入的模块
 import { formatTimes } from 'configjs-utilsjs';
 
