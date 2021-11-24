@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 *.html
-src/
+examples/
 .gitignore
 gulpfile.js
 package-lock.json

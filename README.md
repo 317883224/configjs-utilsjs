@@ -50,6 +50,7 @@ console.log(time)
 :-: | :-: | :-: | :-: | :-: 
 参数1 | 需要转金钱格式的值 | string number | -- | -- 
 参数2 | 金钱保留小数位 | number | -- | -- 
+参数3 | 千分符号 | string | -- | -- 
  
  
 #### capitalize（首字母大写）
@@ -80,7 +81,7 @@ console.log(time)
 参数1 | 时间 | array[data] date | -- | new date 
 参数2 | 时间转换类型 | string | 具体写法看详情 | 'yyyy-MM-dd hh:mm:ss' 
  
-##### format 详情说明
+##### 参数2 详情说明
 参数 | 说明 | 范围
 :-: | :-: | :-:
 y | 年 | 1~4
@@ -102,7 +103,7 @@ w | 星期 | 1
 参数1 | 开始时间 | date | -- | -- 
 参数2 | 结束时间 | date | -- | -- 
 参数3 | 根据时间中的值来生成数组 | string | y,M,d | d 
-参数4 | 时间转换类型 | string | 同时间转换方法 | new Date()
+参数4 | 时间转换类型 | string | 同时间转换方法的参数2 | new Date()
  
 #### setUnicode（unicode加密工具）
 ##### 属性 attr
@@ -123,6 +124,14 @@ w | 星期 | 1
 :-: | :-: | :-: | :-: | :-: 
 参数1 | 根据数据生成日期快捷 | array | -- | -- 
 参数2 | 生成的时间类型 | string | -- | -- 
+
+##### 参数1的item 详情说明
+参数 | 说明 | 类型 | 可选值 | 默认值 
+:-: | :-: | :-: | :-: | :-:
+text | 名称 | string | | -- | -- 
+y | 距离当前年限 | number | -- | -- 
+M | 距离当前月限 | number | -- | -- 
+d | 距离当前日限 | number | -- | -- 
 
 #### generateRandomString（生成随机字符串）
 ##### 属性 attr
