@@ -9,7 +9,7 @@ configjs-utilsjs 是317883224开源的纯js方法库, 包含：时间转换，�
 - 纯 js
 
 ## 版本
-*  [3.0.0]
+*  [3.0.1]
 	+ 改回 gulp，更轻量
 	+ 新增 generateDateShortcuts 方法
 	+ 新增 generateRandomString 方法
