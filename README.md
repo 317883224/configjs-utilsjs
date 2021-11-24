@@ -9,6 +9,11 @@ configjs-utilsjs 是317883224开源的纯js方法库, 包含：时间转换，�
 - 纯 js
 
 ## 版本
+*  [3.0.0]
+	+ 改回 gulp，更轻量
+	+ 新增 generateDateShortcuts 方法
+	+ 新增 generateRandomString 方法
+	+ 删除 formatStringDateTimes 方法，可通过 formatTimes 方法实现
 *  [2.1.4]
 	+ 修改千分符的方法，从number转string,解决number长度问题
 *  [2.1.3]
@@ -28,24 +33,12 @@ npm i configjs-utilsjs -S
  
 ## 快速上手
  
-### [推荐]按需加载
+### 例子
 ```js
 // 需要引入的模块
 import { formatTimes } from 'configjs-utilsjs';
 
 const time = formatTimes(new Date(), 'yyyy-MM-dd');
-console.log(time)
-```
- 
-### 全局引入
-```js
-// main.js
-import Vue from 'vue';
-import configjsutilsjs from 'configjs-utilsjs';
-Vue.use(configjsutilsjs);
-
-// 在 vue 模块中
-const time = this.$configjsutilsjs.formatTimes(new Date(), 'yyyy-MM-dd');
 console.log(time)
 ```
 
@@ -111,15 +104,6 @@ w | 星期 | 1
 参数3 | 根据时间中的值来生成数组 | string | y,M,d | d 
 参数4 | 时间转换类型 | string | 同时间转换方法 | new Date()
  
- 
-#### formatStringDateTimes（根据传进的数组字符串或者字符串生成相应的时间）
-##### 属性 attr
-参数 | 说明 | 类型 | 可选值 | 默认值 
-:-: | :-: | :-: | :-: | :-: 
-参数1 | 需要转换的数据 | array[data] date | -- | -- 
-参数2 |  时间转换类型 | string | 同时间转换方法 | new Date() 
- 
- 
 #### setUnicode（unicode加密工具）
 ##### 属性 attr
 参数 | 说明 | 类型 | 可选值 | 默认值 
@@ -132,6 +116,20 @@ w | 星期 | 1
 参数 | 说明 | 类型 | 可选值 | 默认值 
 :-: | :-: | :-: | :-: | :-: 
 参数1 | 需要解码的值 | string | -- | -- 
+
+#### generateDateShortcuts（根据数据生成日期快捷，element-ui专用）
+##### 属性 attr
+参数 | 说明 | 类型 | 可选值 | 默认值 
+:-: | :-: | :-: | :-: | :-: 
+参数1 | 根据数据生成日期快捷 | array | -- | -- 
+参数2 | 生成的时间类型 | string | -- | -- 
+
+#### generateRandomString（生成随机字符串）
+##### 属性 attr
+参数 | 说明 | 类型 | 可选值 | 默认值 
+:-: | :-: | :-: | :-: | :-: 
+参数1 | 生成长度 | number | -- | -- 
+参数2 | 随机值，默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1 | string | -- | ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678 
  
  
 ## 联系方式

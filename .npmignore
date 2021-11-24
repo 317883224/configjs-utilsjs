@@ -1,20 +1,10 @@
 .DS_Store
 node_modules
-packages
-examples
-vue.config.js
-package-lock.json
-public
-.browserslistrc
-.editorconfig
-.eslintrc
-.gitignore
-babel.config.js
-vue.config
-*.map
 *.html
-lib/configjs-utilsjs.common.js
-lib/configjs-utilsjs.umd.js
+src/
+.gitignore
+gulpfile.js
+package-lock.json
 
 # local env files
 .env.local
