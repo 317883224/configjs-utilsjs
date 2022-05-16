@@ -1,5 +1,11 @@
-import { formatTimes } from '../formatTimes';
-
+/*
+ * @FileName: generateDateTimes
+ * @Author: FYR
+ * @Date: 2022-05-12 10:34:59
+ * @LastEditors: FYR
+ * @LastEditTime: 2022-05-16 16:52:10
+ * @Description: 根据开始结束时间生成连续的时间数组
+ */
 /******************************** 根据开始结束时间生成连续的时间数组 **********************************
  * 
  ************属性 attr
@@ -9,6 +15,9 @@ import { formatTimes } from '../formatTimes';
  * 	type				格式						string					y,M,d				d
  * 	format 			    时间转换类型					string				    同时间转换方法		new Date()
  *****************************/
+
+import { formatTimes } from '../formatTimes/index.js';
+
 export function generateDateTimes(startTime, endTime, type = 'd', format) {
 	let dateTimes = [startTime];
 	let interval = 0;

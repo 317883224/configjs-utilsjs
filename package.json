@@ -2,12 +2,13 @@
   "name": "configjs-utilsjs",
   "version": "3.0.1",
   "description": "工具类",
-  "main": "lib/index.js",
+  "main": "lib/js/index.js",
   "repository": "https://github.com/317883224/configjs-utilsjs",
   "homepage": "https://www.npmjs.com/package/configjs-utilsjs",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp",
+    "serve": "gulp serve",
+    "build": "gulp build",
     "jshint": "gulp jshint"
   },
   "keywords": [
@@ -26,6 +27,7 @@
     "gulp-remove-logging": "^1.2.0",
     "gulp-strip-debug": "^4.0.0",
     "gulp-uglify": "^3.0.2",
-    "gulp-util": "^3.0.8"
+    "gulp-util": "^3.0.8",
+    "gulp-watch": "^5.0.1"
   }
 }

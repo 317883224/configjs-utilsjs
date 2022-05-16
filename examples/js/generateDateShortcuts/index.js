@@ -1,4 +1,11 @@
-import { formatTimes } from '../formatTimes';
+/*
+ * @FileName: generateDateShortcuts
+ * @Author: FYR
+ * @Date: 2022-05-12 10:34:59
+ * @LastEditors: FYR
+ * @LastEditTime: 2022-05-16 16:52:06
+ * @Description: 根据数据生成日期快捷 el-date Shortcuts用
+ */
 
 /******************************** 根据数据生成日期快捷 el-date Shortcuts用 **********************************
  * 
@@ -14,6 +21,9 @@ import { formatTimes } from '../formatTimes';
  * 	M 				距离当前月限					string number           --                  --
  * 	d 				距离当前日限					string number           --                  --
  *****************************/
+import { formatTimes } from '../formatTimes/index.js';
+
+
 export function generateDateShortcuts(dateArray, valueFormat) {
 	return dateArray.map((item) => {
 		return {

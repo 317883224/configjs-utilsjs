@@ -1,9 +1,19 @@
+/*
+ * @FileName: getUnicode
+ * @Author: FYR
+ * @Date: 2022-05-12 10:34:59
+ * @LastEditors: FYR
+ * @LastEditTime: 2022-05-12 13:51:43
+ * @Description: 解码工具
+ */
+
 /******************************** 解码工具 **********************************
  * 
  ************属性 attr
  * 	参数			        说明							类型				        可选值		        默认值
  * 	string 					需要解码的值						string			        	--			        -
  *****************************/
+
 export function getUnicode(string) {
 	if (string && string.indexOf('\\u') !== -1) {
 		let valArr = string.split('\\u'),

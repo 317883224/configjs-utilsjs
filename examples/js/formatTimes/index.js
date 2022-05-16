@@ -1,3 +1,11 @@
+/*
+ * @FileName: formatTimes
+ * @Author: FYR
+ * @Date: 2022-05-12 10:34:59
+ * @LastEditors: FYR
+ * @LastEditTime: 2022-05-12 13:50:31
+ * @Description: 时间转换
+ */
 /******************************** 时间转换 **********************************
  * 
  ************属性 attr
