@@ -52,8 +52,8 @@ console.log(time)
 ##### 属性 attr
 |     参数      |        说明        |     类型      | 可选值 | 默认值 |
 | :-----------: | :----------------: | :-----------: | :----: | :----: |
-|     value     | 需要转金钱格式的值 | string number |   --   |   --   |
-| decimalPlaces |   金钱保留小数位   |    number     |   --   |   --   |
+|     value     | 需要转千分符的值 | string number |   --   |   --   |
+| decimalPlaces |   数值保留小数位   |    number     |   --   |   --   |
 |  separators   |      千分符号      |    string     |   --   |   --   |
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
