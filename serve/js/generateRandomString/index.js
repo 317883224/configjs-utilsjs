@@ -1,1 +1,0 @@
-export function generateRandomString(t=16,r="ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678"){let e=r.length;let n="";for(i=0;i<t;i++){n+=r.charAt(Math.floor(Math.random()*e))}return n}

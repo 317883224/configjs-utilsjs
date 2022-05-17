@@ -1,1 +1,0 @@
-export function formatThousands(e,t=",",r){let i=String(e).split(".");i[0]=i[0].replace(/(\d)(?=(?:\d{3})+$)/g,"$1"+t);if(!i[1])i[1]="";if(r>0){let e=r-i[1].length;if(e>=0){i[1]=i[1].padEnd(r,"0")}else{i[1]=i[1].substr(0,r-1)+(Number(i[1][r-1])+(i[1][r]>5?1:0))}}return i.filter(e=>e).join(".")}

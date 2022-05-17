@@ -3,16 +3,16 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2022-05-12 10:47:55
+ * @LastEditTime: 2022-05-17 12:04:12
  * @Description: 格式化数组为千分符
  */
 /******************************** 千分符 **********************************
  *
  ************属性 attr
  * 	参数			    		说明						    类型				    可选值		            默认值
- * 	value 					需要转金钱格式的值				string number				--			            --
- * 	decimalPlaces 			金钱保留小数位					number						--						0
- * 	separators 				分隔符							string 						--						,
+ * 	value 						数值				string number				--			            --
+ * 	decimalPlaces 				保留小数位					number						--						0
+ * 	separators 					分隔符							string 						--						,
  *
  *****************************/
 export function formatThousands(value, separators = ',', decimalPlaces) {

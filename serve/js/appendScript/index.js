@@ -1,1 +1,0 @@
-export function appendScript(t){var e=document.createElement("script");e.type="text/javascript";e.charset="utf-8";e.src=t;document.head.appendChild(e);return true}

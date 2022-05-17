@@ -1,1 +1,0 @@
-export function capitalize(e){return e.replace(/\b\w/,e=>e.toUpperCase())}
