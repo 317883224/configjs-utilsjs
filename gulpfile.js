@@ -61,7 +61,7 @@ gulp.task('js', gulp.series(function () {
 			})
 		)
 		.pipe(stripDebug({
-			methods: ['log']
+			methods: env === 'serve' ? [] : ['log']
 		}))
 		.pipe(gulp.dest(convertFolder))
 		.pipe(connect.reload())

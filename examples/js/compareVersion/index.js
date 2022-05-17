@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:38:14
  * @LastEditors: FYR
- * @LastEditTime: 2022-05-12 11:57:37
+ * @LastEditTime: 2022-05-17 14:42:57
  * @Description: 版本比较
  */
 
@@ -21,9 +21,9 @@
  * 
  *****************************/
 
-export function compareVersion(v1, v2) {
-  let verson1 = v1.split('.');
-  let verson2 = v2.split('.');
+export function compareVersion(v1, v2, separators = '.') {
+  let verson1 = v1.split(separators);
+  let verson2 = v2.split(separators);
   const len = Math.max(v1.length, v2.length);
 
   while (verson1.length < len) {

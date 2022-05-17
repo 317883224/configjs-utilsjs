@@ -50,11 +50,11 @@ console.log(time)
  
 #### formatThousands（千分符）
 ##### 属性 attr
-|     参数      |        说明        |     类型      | 可选值 | 默认值 |
-| :-----------: | :----------------: | :-----------: | :----: | :----: |
+|     参数      |       说明       |     类型      | 可选值 | 默认值 |
+| :-----------: | :--------------: | :-----------: | :----: | :----: |
 |     value     | 需要转千分符的值 | string number |   --   |   --   |
-| decimalPlaces |   数值保留小数位   |    number     |   --   |   --   |
-|  separators   |      千分符号      |    string     |   --   |   --   |
+| decimalPlaces |  数值保留小数位  |    number     |   --   |   --   |
+|  separators   |     千分符号     |    string     |   --   |   --   |
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
@@ -65,6 +65,11 @@ console.log(time)
 |     v1     | 被比较的版本1 | string |   --   |   --   |
 |     v2     | 被比较的版本1 | string |   --   |   --   |
 | separators |    分隔符     | string |   --   |   .    |
+
+##### 返回值 return
+| 参数  |  类型  |                  说明                  |
+| :---: | :----: | :------------------------------------: |
+| value | number | 返回值 0: v2 > v1 1:v1 > v2 2: v1 = v2 |
  
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
