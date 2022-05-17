@@ -5,8 +5,7 @@ node_modules
 gulpfile.js
 package-lock.json
 examples/*
-lib/html/*
-lib/css/*
+serve/*
 
 # local env files
 .env.local

@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2022-05-17 09:39:55
+ * @LastEditTime: 2022-05-17 11:38:29
  * @Description: gulp配置文件
  */
 
@@ -16,6 +16,9 @@ var notify = require('gulp-notify'); // 提示信息
 var connect = require('gulp-connect');
 var gutil = require('gulp-util');
 var watch = require('gulp-watch');
+var babel = require("gulp-babel");
+var concat=require('gulp-concat');
+var sourcemaps=require('gulp-sourcemaps');
 
 const env = process.argv.includes('serve') ? 'serve' : 'build'; // 当前环境 serve：本地环境 build：打包环境
 const convertFolder = env === 'serve' ? 'serve' : 'lib'; // 转换文件夹
@@ -51,8 +54,13 @@ gulp.task('html', function () {
  */
 gulp.task('js', gulp.series(function () {
 	gutil.log('开始处理 js');
-	
+
 	return gulp.src(env === 'serve' ? ['examples/**/*.js'] : ['examples/js/**/*.js'])
+		.pipe(sourcemaps.init())
+		.pipe(babel({
+			presets: ['@babel/env']
+		}))
+		.pipe(concat('bundle.min.js'))
 		.pipe(
 			uglify({
 				mangle: true, //类型：Boolean 默认：true 是否修改变量名
@@ -63,6 +71,7 @@ gulp.task('js', gulp.series(function () {
 		.pipe(stripDebug({
 			methods: ['log']
 		}))
+		.pipe(sourcemaps.write())
 		.pipe(gulp.dest(convertFolder))
 		.pipe(connect.reload())
 }))
