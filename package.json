@@ -1,12 +1,11 @@
 {
   "name": "configjs-utilsjs",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "工具类",
-  "main": "lib/js/index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/317883224/configjs-utilsjs",
   "homepage": "https://www.npmjs.com/package/configjs-utilsjs",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "serve": "gulp serve",
     "build": "gulp build",
     "jshint": "gulp jshint"

@@ -1,0 +1,1 @@
+export function compareVersion(t,e){let n=t.split(".");let l=e.split(".");const r=Math.max(t.length,e.length);while(n.length<r){n.push("0")}while(l.length<r){l.push("0")}for(let t=0;t<r;t++){const s=parseInt(n[t]);const h=parseInt(l[t]);if(s>h){return 1}else if(s<h){return 0}}return 2}
