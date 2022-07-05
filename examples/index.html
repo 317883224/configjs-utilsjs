@@ -8,10 +8,17 @@
 		<p>调试页面</p>
 		<script type="module">
 			import {
-				compareVersion
+				formatThousands
 			} from './js/index.js';
 			
-			console.log(compareVersion('3:0:0', '2:0', ':'))
+			console.log(formatThousands(123456789.456456, ',', 0))
+			console.log(formatThousands(123456789.456456, ',', 1))
+			console.log(formatThousands(123456789.456456, ',', 2))
+			console.log(formatThousands(123456789.456456, ',', 3))
+			console.log(formatThousands(123456789.456456, ','))
+			console.log(formatThousands(123456789.456456, ',', -1))
+			console.log(formatThousands(123456789.456456, ',', -2))
+			console.log(formatThousands(123456789.456456, ',', 10))
 		</script>
 	</body>
 </html>

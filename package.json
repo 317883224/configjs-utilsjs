@@ -1,6 +1,6 @@
 {
   "name": "configjs-utilsjs",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "工具类",
   "main": "lib/index.js",
   "repository": "https://github.com/317883224/configjs-utilsjs",

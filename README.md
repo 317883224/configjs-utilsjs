@@ -1,6 +1,6 @@
 # configjs-utilsjs
 
-### 介绍
+## 介绍
 
 configjs-utilsjs 是317883224开源的纯js方法库, 包含：时间转换，数字转换千分符等。
 
@@ -9,6 +9,9 @@ configjs-utilsjs 是317883224开源的纯js方法库, 包含：时间转换，�
 - 纯 js
 
 ## 版本
+*  [3.1.1]
+	+ 修改 formatThousands 方法的 decimalPlaces 参数规则，不填时不进行处理，为0时返回整数
+	+ 修复 formatThousands 方法出现的四舍五入精度丢失的情况
 *  [3.1.0]
 	+ 新增 compareVersion（版本比较） 方法
 	+ 改名 formatMoney 方法改名为 formatThousands
