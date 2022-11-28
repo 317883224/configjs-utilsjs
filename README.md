@@ -9,6 +9,9 @@ configjs-utilsjs 是317883224开源的纯js方法库, 包含：时间转换，�
 - 纯 js
 
 ## 版本
+*  [3.3.0]
+	+ 新增 moneyUnitConversion（金额的单位转换功能）方法
+	+ 修改 formatTimes 方法的 times 参数的默认值，改为传入非法值则不处理直接输出
 *  [3.2.0]
 	+ 新增 moneyUnitConversion（金额的单位转换功能）方法
 	+ 修改 formatTimes 方法的 times 参数的默认值，改为必填

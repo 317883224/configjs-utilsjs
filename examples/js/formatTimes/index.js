@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2022-11-28 14:07:35
+ * @LastEditTime: 2022-11-28 14:52:27
  * @Description: 时间转换
  */
 
@@ -14,7 +14,7 @@
  * @return {array[formatValeu]|foramtValue}
  */
 export function formatTimes(times, format = 'yyyy-MM-dd hh:mm:ss') {
-	if(times === undefined || times === null) console.error('formatTimes of the times is undefined');
+	if(!times) return times;
 	let timesType = Array.isArray(times); //判断是否是数组
 	times = timesType ? times : [times];
 	times.forEach((item, index, array) => {
