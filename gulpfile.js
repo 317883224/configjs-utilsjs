@@ -20,7 +20,7 @@ var watch = require('gulp-watch');
 const env = process.argv.includes('serve') ? 'serve' : 'build'; // 当前环境 serve：本地环境 build：打包环境
 const convertFolder = env === 'serve' ? 'serve' : 'lib'; // 转换文件夹
 
-/* 
+/*
  * 本地调试环境local
  */
 gulp.task('serve', function () {
@@ -46,7 +46,7 @@ gulp.task('html', function () {
 });
 
 
-/* 
+/*
  * 处理 js 文件
  */
 gulp.task('js', gulp.series(function () {
@@ -76,7 +76,7 @@ gulp.task('clean', function () {
 	}).pipe(clean())
 })
 
-/* 
+/*
  * 检测
  */
 gulp.task('jshint', function () {

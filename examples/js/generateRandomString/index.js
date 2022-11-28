@@ -3,22 +3,20 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2022-05-12 13:51:30
+ * @LastEditTime: 2022-11-28 14:13:50
  * @Description: 生成随机字符串
  */
 
-/******************************** 生成随机字符串 **********************************
- * 
- ************属性 attr
- * 	参数			        说明																类型				        可选值		        默认值
- * 	length 					生成长度																number			        	--			        -
- * 	chars 					随机值，默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1						string						--					ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678
- *****************************/
-
-export function generateRandomString(_length = 16, chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678') {
+/*
+ * @name: 生成随机字符串
+ * @param {number} _length 生成长度
+ * @param {string} chars 随机值，默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1
+ * @return {string} 生成的字符串
+ */
+export function generateRandomString(length = 16, chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678') {
 	let charsLength = chars.length;
 	let keyStr = '';
-	for (i = 0; i < _length; i++) {
+	for (i = 0; i < length; i++) {
 		keyStr += chars.charAt(Math.floor(Math.random() * charsLength));
 	}
 	return keyStr;

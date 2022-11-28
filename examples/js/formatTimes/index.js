@@ -3,31 +3,18 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2022-05-12 13:50:31
+ * @LastEditTime: 2022-11-28 14:07:35
  * @Description: 时间转换
  */
-/******************************** 时间转换 **********************************
- * 
- ************属性 attr
- * 	参数			    说明						    类型				    可选值		            默认值
- * 	times 			时间							array[data] date			--			            new date
- * 	format 			时间转换类型					string				具体写法看详情			'yyyy-MM-dd hh:mm:ss' 
- * 
- * 
- * ************format详情说明
- * 	参数			    说明				    范围
- * 	y 				年					1~4
- * 	M 				月					1~2
- * 	d 				日					1~2
- * 	h 				小时			    	1~2
- * 	m 				分					1~2
- * 	s 				秒					1~2
- * 	q 				季度			    	1~2
- * 	S 				毫秒				    1
- * 	t 				时间戳				1
- * 	w 				星期				    1
- *****************************/
-export function formatTimes(times = new Date(), format = 'yyyy-MM-dd hh:mm:ss') {
+
+/*
+ * @name: 时间转换
+ * @param {array[data]|date} times 时间
+ * @param {string} format 时间转换类型
+ * @return {array[formatValeu]|foramtValue}
+ */
+export function formatTimes(times, format = 'yyyy-MM-dd hh:mm:ss') {
+	if(times === undefined || times === null) console.error('formatTimes of the times is undefined');
 	let timesType = Array.isArray(times); //判断是否是数组
 	times = timesType ? times : [times];
 	times.forEach((item, index, array) => {

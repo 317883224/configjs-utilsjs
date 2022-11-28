@@ -3,20 +3,19 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2022-05-12 13:51:43
- * @Description: 解码工具
+ * @LastEditTime: 2022-11-28 14:17:58
+ * @Description: unicode解码工具
  */
 
-/******************************** 解码工具 **********************************
- * 
- ************属性 attr
- * 	参数			        说明							类型				        可选值		        默认值
- * 	string 					需要解码的值						string			        	--			        -
- *****************************/
 
-export function getUnicode(string) {
-	if (string && string.indexOf('\\u') !== -1) {
-		let valArr = string.split('\\u'),
+/*
+ * @name: unicode解码工具
+ * @param {string} value 需要解码的值
+ * @return {string} 解后的码
+ */
+export function getUnicode(value) {
+	if (value && value.indexOf('\\u') !== -1) {
+		let valArr = value.split('\\u'),
 			result = '';
 		for (let j = 0, length = valArr.length; j < length; j++) {
 			result += String.fromCharCode(parseInt(valArr[j], 16));
