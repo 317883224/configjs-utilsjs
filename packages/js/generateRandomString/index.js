@@ -13,7 +13,7 @@
  * @param {string} chars 随机值，默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1
  * @return {string} 生成的字符串
  */
-export function generateRandomString(length = 16, chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678') {
+export default function generateRandomString(length = 16, chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678') {
 	let charsLength = chars.length;
 	let keyStr = '';
 	for (i = 0; i < length; i++) {

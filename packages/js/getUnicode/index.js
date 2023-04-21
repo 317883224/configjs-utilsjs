@@ -13,7 +13,7 @@
  * @param {string} value 需要解码的值
  * @return {string} 解后的码
  */
-export function getUnicode(value) {
+export default function getUnicode(value) {
 	if (value && value.indexOf('\\u') !== -1) {
 		let valArr = value.split('\\u'),
 			result = '';

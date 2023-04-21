@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2022-11-28 14:52:27
+ * @LastEditTime: 2023-04-21 15:36:53
  * @Description: 时间转换
  */
 
@@ -13,7 +13,7 @@
  * @param {string} format 时间转换类型
  * @return {array[formatValeu]|foramtValue}
  */
-export function formatTimes(times, format = 'yyyy-MM-dd hh:mm:ss') {
+export default function formatTimes(times, format = 'yyyy-MM-dd hh:mm:ss') {
 	if(!times) return times;
 	let timesType = Array.isArray(times); //判断是否是数组
 	times = timesType ? times : [times];

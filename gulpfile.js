@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2022-05-17 14:16:51
+ * @LastEditTime: 2023-04-21 10:59:46
  * @Description: gulp配置文件
  */
 
@@ -30,8 +30,8 @@ gulp.task('serve', function () {
 		livereload: true,
 	});
 
-	watch('examples/**/*.html', gulp.series('html'));
-	watch('examples/**/*.js', gulp.series('js'));
+	watch('packages/**/*.html', gulp.series('html'));
+	watch('packages/**/*.js', gulp.series('js'));
 });
 
 /**
@@ -40,7 +40,7 @@ gulp.task('serve', function () {
 gulp.task('html', function () {
 	gutil.log('开始处理 html');
 
-	return gulp.src('./examples/**/*.html')
+	return gulp.src('./packages/**/*.html')
 		.pipe(gulp.dest(convertFolder))
 		.pipe(connect.reload())
 });
@@ -52,7 +52,7 @@ gulp.task('html', function () {
 gulp.task('js', gulp.series(function () {
 	gutil.log('开始处理 js');
 
-	return gulp.src(env === 'serve' ? ['examples/**/*.js'] : ['examples/js/**/*.js'])
+	return gulp.src(env === 'serve' ? ['packages/**/*.js'] : ['packages/js/**/*.js'])
 		.pipe(
 			uglify({
 				mangle: true, //类型：Boolean 默认：true 是否修改变量名
@@ -82,7 +82,7 @@ gulp.task('clean', function () {
 gulp.task('jshint', function () {
 	gutil.log('开始检测');
 
-	return gulp.src('./examples/**/*.js')
+	return gulp.src('./packages/**/*.js')
 		.pipe(jshint())
 		.pipe(jshint.reporter('default'))
 		.pipe(jshint.reporter('fail'))

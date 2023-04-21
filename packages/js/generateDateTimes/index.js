@@ -7,7 +7,7 @@
  * @Description: 根据开始结束时间生成连续的时间数组
  */
 
-import { formatTimes } from '../formatTimes/index.js';
+import formatTimes from '../formatTimes/index.js';
 
 /*
  * @name: 根据开始结束时间生成连续的时间数组
@@ -17,7 +17,7 @@ import { formatTimes } from '../formatTimes/index.js';
  * @param {string} format 时间转换类型
  * @return {formatValue[]}
  */
-export function generateDateTimes(startTime, endTime, type = 'd', format) {
+export default function generateDateTimes(startTime, endTime, type = 'd', format) {
 	let dateTimes = [startTime];
 	let interval = 0;
 	type = type.toUpperCase();
