@@ -4,7 +4,7 @@
  * @Author: FYR
  * @Date: 2023-04-21 11:06:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-04-21 16:16:37
+ * @LastEditTime: 2023-04-24 09:16:27
  * @Description: 格式化数值为四舍五入
  */
 
@@ -32,7 +32,7 @@ export default function formatRound(value, decimalPlaces = 0) {
         }
     }
 
-    if (!valueArray[1]) delete valueArray[1];
+    if (!valueArray[1]) valueArray.splice(1, 1);
 
     return valueArray.join('.'); // 过滤小数为空
 }
