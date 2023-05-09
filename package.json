@@ -2,7 +2,8 @@
   "name": "configjs-utilsjs",
   "version": "4.0.0",
   "description": "工具类",
-  "main": "main/index.js",
+  "main": "lib/index.js",
+  "private": true,
   "repository": "https://github.com/317883224/configjs-utilsjs",
   "homepage": "https://www.npmjs.com/package/configjs-utilsjs",
   "scripts": {
