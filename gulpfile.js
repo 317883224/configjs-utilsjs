@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-04-21 10:59:46
+ * @LastEditTime: 2023-05-09 14:39:12
  * @Description: gulp配置文件
  */
 
@@ -18,7 +18,7 @@ var gutil = require('gulp-util');
 var watch = require('gulp-watch');
 
 const env = process.argv.includes('serve') ? 'serve' : 'build'; // 当前环境 serve：本地环境 build：打包环境
-const convertFolder = env === 'serve' ? 'serve' : 'lib'; // 转换文件夹
+const convertFolder = env === 'serve' ? 'serve' : 'dist'; // 转换文件夹
 
 /*
  * 本地调试环境local
@@ -52,7 +52,7 @@ gulp.task('html', function () {
 gulp.task('js', gulp.series(function () {
 	gutil.log('开始处理 js');
 
-	return gulp.src(env === 'serve' ? ['packages/**/*.js'] : ['packages/js/**/*.js'])
+	return gulp.src(env === 'serve' ? ['packages/**/*.js'] : ['packages/**/*.js'])
 		.pipe(
 			uglify({
 				mangle: true, //类型：Boolean 默认：true 是否修改变量名

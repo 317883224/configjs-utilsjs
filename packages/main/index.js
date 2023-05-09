@@ -4,7 +4,7 @@
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
  * @LastEditTime: 2023-04-21 15:38:42
- * @Description: js主文件
+ * @Description: 主要方法的入口
  */
 'use strict';
 

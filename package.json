@@ -1,13 +1,13 @@
 {
   "name": "configjs-utilsjs",
-  "version": "3.4.1",
+  "version": "4.0.0",
   "description": "工具类",
-  "main": "lib/index.js",
+  "main": "main/index.js",
   "repository": "https://github.com/317883224/configjs-utilsjs",
   "homepage": "https://www.npmjs.com/package/configjs-utilsjs",
   "scripts": {
     "serve": "gulp serve",
-    "build": "gulp build",
+    "build": "gulp build && node ./config/config.npm.js",
     "lib": "npm run build",
     "jshint": "gulp jshint"
   },
