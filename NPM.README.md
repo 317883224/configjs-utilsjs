@@ -9,33 +9,35 @@ configjs-utilsjs 是317883224开源的纯js方法库, 包含：时间转换，�
 - 纯 js
 
 ## 版本
+*  [4.1.0]
+	+ 新增 [dictionarySort](#dictionarySort)（字典排序）方法
+	+ 新增 [dictionaryClassification](#dictionaryClassification)（字典分类）方法
 *  [4.0.0]
 	+ 新增 other 目录，里边为一些不常用的方法
-	+ 新增 formatRgbToHex（格式化颜色RGB为HEX）方法
-	+ 新增 generateHex（生成类型为HEX的随机颜色）方法
-	+ 新增 getUrlQuery（获取网址的传参）方法
-	+ 新增 isDarkMode（判断设置主题是否为黑暗模式）方法
-	+ 新增 isNumber（判断是否为数字类型）方法
+	+ 新增 [formatRgbToHex](#formatRgbToHex)（格式化颜色RGB为HEX）方法
+	+ 新增 [generateHex](#generateHex)（生成类型为HEX的随机颜色）方法
+	+ 新增 [getUrlQuery](#getUrlQuery)（获取网址的传参）方法
+	+ 新增 [isDarkMode](#isDarkMode)（判断设置主题是否为黑暗模式）方法
+	+ 新增 [isNumber](#isNumber)（判断是否为数字类型）方法
 *  [3.4.0]
-	+ 新增 formatRound（四舍五入，根据需要保留小数位生成）方法
+	+ 新增 [formatRound](#formatRound)（四舍五入，根据需要保留小数位生成）方法
 *  [3.3.0]
-	+ 新增 moneyUnitConversion（金额的单位转换功能）方法
-	+ 修改 formatTimes 方法的 times 参数的默认值，改为传入非法值则不处理直接输出
+	+ 新增 [moneyUnitConversion](#moneyUnitConversion)（金额的单位转换功能）方法
+	+ 修改 [formatTimes](#formatTimes) 方法的 times 参数的默认值，改为传入非法值则不处理直接输出
 *  [3.2.0]
-	+ 新增 moneyUnitConversion（金额的单位转换功能）方法
-	+ 修改 formatTimes 方法的 times 参数的默认值，改为必填
+	+ 新增 [moneyUnitConversion](#moneyUnitConversion)（金额的单位转换功能）方法
+	+ 修改 [formatTimes](#formatTimes) 方法的 times 参数的默认值，改为必填
 *  [3.1.1]
-	+ 修改 formatThousands 方法的 decimalPlaces 参数规则，不填时不进行处理，为0时返回整数
-	+ 修复 formatThousands 方法出现的四舍五入精度丢失的情况
+	+ 修改 [formatThousands](#formatThousands) 方法的 decimalPlaces 参数规则，不填时不进行处理，为0时返回整数
+	+ 修复 [formatThousands](#formatThousands) 方法出现的四舍五入精度丢失的情况
 *  [3.1.0]
-	+ 新增 compareVersion（版本比较） 方法
-	+ 改名 formatMoney 方法改名为 formatThousands
+	+ 新增 [compareVersion](#compareVersion)（版本比较） 方法
+	+ 改名 formatMoney 方法改名为 [formatThousands](#formatThousands)
 	+ 修改代码结构
 *  [3.0.1]
-	+ 改回 gulp，更轻量，但无按需加载功能
-	+ 新增 generateDateShortcuts（生成日期快捷，element-ui专用） 方法
-	+ 新增 generateRandomString（生成随机字符串） 方法
-	+ 删除 formatStringDateTimes 方法，可通过 formatTimes 方法实现
+	+ 新增 [generateDateShortcuts](#generateDateShortcuts)（生成日期快捷，element-ui专用） 方法
+	+ 新增 [generateRandomString](#generateRandomString)（生成随机字符串） 方法
+	- 删除 formatStringDateTimes 方法，可通过 formatTimes 方法实现
 *  [2.1.4]
 	+ 修改千分符的方法，从number转string，解决number长度问题
 *  [2.1.3]
@@ -66,6 +68,7 @@ console.log(time)
 
 ## 文档
 
+<a id="formatThousands"></a>
 ### formatThousands（千分符）
 #### 属性 attr
 |     参数      |       说明       |     类型      | 可选值 | 默认值 |
@@ -81,6 +84,7 @@ console.log(time)
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
+<a id="formatRound"></a>
 ### formatRound（四舍五入）
 #### 属性 attr
 |     参数      |       说明       |     类型      | 可选值 | 默认值 |
@@ -95,6 +99,7 @@ console.log(time)
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
+<a id="compareVersion"></a>
 ### compareVersion（版本比较）
 #### 属性 attr
 |    参数    |     说明      |  类型  | 可选值 | 默认值 |
@@ -147,6 +152,7 @@ console.log(time)
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
+<a id="formatTimes"></a>
 ### formatTimes（时间转换）
 #### 属性 attr
 |  参数  |     说明     |        类型        |                可选值                |        默认值         |
@@ -218,6 +224,7 @@ console.log(time)
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
+<a id="generateDateShortcuts"></a>
 ### generateDateShortcuts（根据数据生成日期快捷，element-ui专用）
 #### 属性 attr
 |    参数     |         说明         |  类型  | 可选值 | 默认值 |
@@ -235,6 +242,7 @@ console.log(time)
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
+<a id="generateRandomString"></a>
 ### generateRandomString（生成随机字符串）
 #### 属性 attr
 |  参数  |                       说明                        |  类型  | 可选值 |                      默认值                      |
@@ -249,6 +257,7 @@ console.log(time)
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
+<a id="moneyUnitConversion"></a>
 ### moneyUnitConversion（金额的单位转换功能）
 #### 属性 attr
 |  参数   |    说明    |  类型  | 可选值 | 默认值 |
@@ -263,6 +272,7 @@ console.log(time)
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
+<a id="formatRgbToHex"></a>
 ### formatRgbToHex（格式化颜色RGB为HEX）
 #### 属性 attr
 | 参数  |   说明   |  类型  | 可选值 | 默认值 |
@@ -278,6 +288,7 @@ console.log(time)
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
+<a id="generateHex"></a>
 ### generateHex（生成类型为HEX的随机颜色）
 #### 返回 return
 | 参数  |       说明        | 类型  |
@@ -286,6 +297,7 @@ console.log(time)
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
+<a id="getUrlQuery"></a>
 ### getUrlQuery（获取网址的传参）
 #### 属性 attr
 | 参数  | 说明  |    类型    | 可选值 | 默认值 |
@@ -299,6 +311,7 @@ console.log(time)
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
+<a id="isDarkMode"></a>
 ### isDarkMode（判断设置主题是否为黑暗模式）
 #### 返回 return
 | 参数  |   说明   |  类型   |
@@ -307,6 +320,7 @@ console.log(time)
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
+<a id="isNumber"></a>
 ### isNumber（判断是否为数字类型）
 #### 属性 attr
 | 参数  |     说明     |     类型      | 可选值 | 默认值 |
@@ -317,6 +331,35 @@ console.log(time)
 | 参数  |   说明   |  类型   |
 | :---: | :------: | :-----: |
 | value | 判断结果 | boolean |
+
+<p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
+
+<a id="dictionarySort"></a>
+### dictionarySort（字典排序）
+#### 属性 attr
+| 参数  |                说明                |   类型   | 可选值 | 默认值 |
+| :---: | :--------------------------------: | :------: | :----: | :----: |
+| data  |            需要排序的值            | string[] |   --   |   --   |
+| type  | 排序类型，0：默认 1：比默认多A-Z值 |  number  |   --   |   0    |
+
+#### 返回 return
+| 参数  |    说明    |   类型   |
+| :---: | :--------: | :------: |
+| value | 排序后的值 | string[] |
+
+<p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
+
+<a id="dictionaryClassification"></a>
+### dictionaryClassification（字典分类）
+#### 属性 attr
+| 参数  |     说明     |   类型   | 可选值 | 默认值 |
+| :---: | :----------: | :------: | :----: | :----: |
+| data  | 需要分类的值 | string[] |   --   |   --   |
+
+#### 返回 return
+| 参数  |    说明    |       类型        |
+| :---: | :--------: | :---------------: |
+| value | 分类后的值 | {string: any[]}[] |
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
