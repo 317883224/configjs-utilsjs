@@ -4,6 +4,8 @@ package-lock.json
 dist/*
 lib/*
 serve/*
+packages/main/index.js
+packages/other/index.js
 
 # local env files
 .env.local
