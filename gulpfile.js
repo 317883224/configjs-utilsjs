@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-05-09 14:39:12
+ * @LastEditTime: 2023-06-19 15:41:46
  * @Description: gulp配置文件
  */
 
@@ -16,6 +16,7 @@ var notify = require('gulp-notify'); // 提示信息
 var connect = require('gulp-connect');
 var gutil = require('gulp-util');
 var watch = require('gulp-watch');
+var { exec } = require('child_process');
 
 const env = process.argv.includes('serve') ? 'serve' : 'build'; // 当前环境 serve：本地环境 build：打包环境
 const convertFolder = env === 'serve' ? 'serve' : 'dist'; // 转换文件夹
@@ -31,7 +32,7 @@ gulp.task('serve', function () {
 	});
 
 	watch('packages/**/*.html', gulp.series('html'));
-	watch('packages/**/*.js', gulp.series('js'));
+	watch(['packages/**/*.js', '!packages/main/index.js', '!packages/other/index.js'], gulp.series('js'));
 });
 
 /**
@@ -51,6 +52,7 @@ gulp.task('html', function () {
  */
 gulp.task('js', gulp.series(function () {
 	gutil.log('开始处理 js');
+	exec('node ./config/config.generateUnifiedExport.js');
 
 	return gulp.src(env === 'serve' ? ['packages/**/*.js'] : ['packages/**/*.js'])
 		.pipe(
