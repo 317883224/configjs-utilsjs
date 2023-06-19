@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title></title>
-	</head>
-	<body>
-		<p>调试页面</p>
-		<script type="module">
-			import {
-				formatThousands,
-				formatRound
-			} from './main/index.js';
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+    </head>
+    <body>
+        <p>调试页面</p>
+        <!-- <script type="module">
+            import { formatThousands, formatRound } from './main/index.js';
 
-			console.log('123456789.56456 保留 0 位小数转换为', formatThousands(123456789.56456, ',', 0))
-			console.log('123456789.56456 保留 1 位小数转换为', formatThousands(123456789.56456, ',', 1))
-			console.log('123456789.56456 保留 2 位小数转换为', formatThousands(123456789.56456, ',', 2))
-			console.log('123456789.56456 保留 3 位小数转换为', formatThousands(123456789.56456, ',', 3))
-			console.log('123456789.56456 保留 -1 位小数转换为', formatThousands(123456789.56456, ',', -1))
-			console.log('123456789.56456 转换为', formatThousands(123456789.56456, ','))
-			console.log('123456789.56456 保留 -2 位小数转换为', formatThousands(123456789.56456, ',', -2))
-			console.log('123456789.56456 保留 10 位小数转换为', formatThousands(123456789.56456, ',', 10))
-			console.log('formatRound 123456789.56456 保留 10 位小数转换为', formatRound(123456789.56456, 10))
-			console.log('formatRound 123456789 转换为', formatRound(123456789))
-			console.log('formatRound 0 转换为', formatThousands(0))
-		</script>
-	</body>
+            console.log('123456789.56456 保留 0 位小数转换为', formatThousands(123456789.56456, ',', 0));
+            console.log('123456789.56456 保留 1 位小数转换为', formatThousands(123456789.56456, ',', 1));
+            console.log('123456789.56456 保留 2 位小数转换为', formatThousands(123456789.56456, ',', 2));
+            console.log('123456789.56456 保留 3 位小数转换为', formatThousands(123456789.56456, ',', 3));
+            console.log('123456789.56456 保留 -1 位小数转换为', formatThousands(123456789.56456, ',', -1));
+            console.log('123456789.56456 转换为', formatThousands(123456789.56456, ','));
+            console.log('123456789.56456 保留 -2 位小数转换为', formatThousands(123456789.56456, ',', -2));
+            console.log('123456789.56456 保留 10 位小数转换为', formatThousands(123456789.56456, ',', 10));
+            console.log('formatRound 123456789.56456 保留 10 位小数转换为', formatRound(123456789.56456, 10));
+            console.log('formatRound 123456789 转换为', formatRound(123456789));
+            console.log('formatRound 0 转换为', formatThousands(0));
+        </script> -->
+        <script type="module">
+            import { dictionaryClassification, dictionarySort } from './other/index.js';
+
+            const value = ['阿', 'aa', '李四', 'ac', 'ab', '张三', '王五', 'bb', 'bc', 'de'];
+
+            console.log('dictionarySort', value, dictionarySort(value));
+            console.log('dictionaryClassification', value, dictionaryClassification(value));
+        </script>
+    </body>
 </html>
