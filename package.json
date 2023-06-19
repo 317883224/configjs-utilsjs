@@ -1,6 +1,6 @@
 {
   "name": "configjs-utilsjs",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "description": "工具类",
   "main": "lib/index.js",
   "private": true,
