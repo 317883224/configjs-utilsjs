@@ -9,16 +9,19 @@ configjs-utilsjs 是317883224开源的纯js方法库, 包含：时间转换，�
 - 纯 js
 
 ## 版本
+*  [4.2.0]
+	+ other 目录新增 [formatMoneyUppercase](#formatMoneyUppercase)（金额大写）方法
+	+ other 目录新增 [deepCopy](#deepCopy)（深拷贝）方法
 *  [4.1.0]
-	+ 新增 [dictionarySort](#dictionarySort)（字典排序）方法
-	+ 新增 [dictionaryClassification](#dictionaryClassification)（字典分类）方法
+	+ other 目录新增 [dictionarySort](#dictionarySort)（字典排序）方法
+	+ other 目录新增 [dictionaryClassification](#dictionaryClassification)（字典分类）方法
 *  [4.0.0]
 	+ 新增 other 目录，里边为一些不常用的方法
-	+ 新增 [formatRgbToHex](#formatRgbToHex)（格式化颜色RGB为HEX）方法
-	+ 新增 [generateHex](#generateHex)（生成类型为HEX的随机颜色）方法
-	+ 新增 [getUrlQuery](#getUrlQuery)（获取网址的传参）方法
-	+ 新增 [isDarkMode](#isDarkMode)（判断设置主题是否为黑暗模式）方法
-	+ 新增 [isNumber](#isNumber)（判断是否为数字类型）方法
+	+ other 目录新增 [formatRgbToHex](#formatRgbToHex)（格式化颜色RGB为HEX）方法
+	+ other 目录新增 [generateHex](#generateHex)（生成类型为HEX的随机颜色）方法
+	+ other 目录新增 [getUrlQuery](#getUrlQuery)（获取网址的传参）方法
+	+ other 目录新增 [isDarkMode](#isDarkMode)（判断设置主题是否为黑暗模式）方法
+	+ other 目录新增 [isNumber](#isNumber)（判断是否为数字类型）方法
 *  [3.4.0]
 	+ 新增 [formatRound](#formatRound)（四舍五入，根据需要保留小数位生成）方法
 *  [3.3.0]
@@ -28,11 +31,11 @@ configjs-utilsjs 是317883224开源的纯js方法库, 包含：时间转换，�
 	+ 新增 [moneyUnitConversion](#moneyUnitConversion)（金额的单位转换功能）方法
 	+ 修改 [formatTimes](#formatTimes) 方法的 times 参数的默认值，改为必填
 *  [3.1.1]
-	+ 修改 [formatThousands](#formatThousands) 方法的 decimalPlaces 参数规则，不填时不进行处理，为0时返回整数
-	+ 修复 [formatThousands](#formatThousands) 方法出现的四舍五入精度丢失的情况
+	+ 修改 [formatThousands](#formatThousands)（千分符）方法的 decimalPlaces 参数规则，不填时不进行处理，为0时返回整数
+	+ 修复 [formatThousands](#formatThousands)（千分符） 方法出现的四舍五入精度丢失的情况
 *  [3.1.0]
 	+ 新增 [compareVersion](#compareVersion)（版本比较） 方法
-	+ 改名 formatMoney 方法改名为 [formatThousands](#formatThousands)
+	+ 改名 formatMoney 方法改名为 [formatThousands](#formatThousands)（千分符）
 	+ 修改代码结构
 *  [3.0.1]
 	+ 新增 [generateDateShortcuts](#generateDateShortcuts)（生成日期快捷，element-ui专用） 方法
@@ -360,6 +363,34 @@ console.log(time)
 | 参数  |    说明    |       类型        |
 | :---: | :--------: | :---------------: |
 | value | 分类后的值 | {string: any[]}[] |
+
+<p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
+
+<a id="formatMoneyUppercase"></d>
+### formatMoneyUppercase（金额大写）
+#### 属性 attr
+| 参数  |   说明   |  类型  | 可选值 | 默认值 |
+| :---: | :------: | :----: | :----: | :----: |
+| data  | 金额数值 | number |   --   |   --   |
+
+#### 返回 return
+| 参数  |    说明    |  类型  |
+| :---: | :--------: | :----: |
+| value | 大写的金额 | string |
+
+<p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
+
+<a id="deepCopy"></d>
+### deepCopy（深拷贝）
+#### 属性 attr
+| 参数  |   说明   | 类型  | 可选值 | 默认值 |
+| :---: | :------: | :---: | :----: | :----: |
+| data  | 被拷贝值 |  any  |   --   |   --   |
+
+#### 返回 return
+| 参数  |     说明     | 类型  |
+| :---: | :----------: | :---: |
+| value | 拷贝出来的值 |  any  |
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 

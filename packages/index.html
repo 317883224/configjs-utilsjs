@@ -21,13 +21,45 @@
             console.log('formatRound 123456789 转换为', formatRound(123456789));
             console.log('formatRound 0 转换为', formatThousands(0));
         </script> -->
-        <script type="module">
+        <!-- <script type="module">
             import { dictionaryClassification, dictionarySort } from './other/index.js';
 
             const value = ['阿', 'aa', '李四', 'ac', 'ab', '张三', '王五', 'bb', 'bc', 'de'];
 
             console.log('dictionarySort', value, dictionarySort(value));
             console.log('dictionaryClassification', value, dictionaryClassification(value));
+        </script> -->
+        <!-- <script type="module">
+            import { formatMoneyUppercase } from './other/index.js';
+
+            const values = ['12313', '12313.69', '12313.6', '12313.90', '11000001100000', '1100013', '1010000', '1001000', '1000100', '1000010', '1000001', '1000000'];
+
+            for (let item of values) {
+                console.log(item, formatMoneyUppercase(item));
+            }
+        </script> -->
+        <script type="module">
+            import { deepCopy } from './other/index.js';
+
+            let value = {
+                a: 1,
+                b: [2, 3],
+                c: {
+                    d: new Date(),
+                    e: function() {
+                        return 5;
+                    }
+                }
+            };
+            let valuecopy = deepCopy(value);
+            let value2 = 1;
+            let value2copy = deepCopy(value2);
+
+            value.c.d = 5;
+            value.c.e.prototype.eee = 6;
+            value2 = 3;
+            console.log(value, valuecopy);
+            console.log(value2, value2copy);
         </script>
     </body>
 </html>
