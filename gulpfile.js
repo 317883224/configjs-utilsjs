@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-06-19 15:41:46
+ * @LastEditTime: 2023-06-23 14:32:58
  * @Description: gulp配置文件
  */
 
@@ -32,7 +32,7 @@ gulp.task('serve', function () {
 	});
 
 	watch('packages/**/*.html', gulp.series('html'));
-	watch(['packages/**/*.js', '!packages/main/index.js', '!packages/other/index.js'], gulp.series('js'));
+	watch(['packages/**/*.js', '!packages/main/index.js'], gulp.series('js'));
 });
 
 /**

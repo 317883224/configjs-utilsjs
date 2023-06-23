@@ -4,7 +4,7 @@
  * @Author: FYR
  * @Date: 2023-06-19 14:33:05
  * @LastEditors: FYR
- * @LastEditTime: 2023-06-19 15:15:26
+ * @LastEditTime: 2023-06-23 14:38:30
  * @Description: 生成统一导出
  */
 
@@ -12,7 +12,6 @@ const fs = require('fs');
 const { resolve } = require('path');
 
 generateUnifiedExport('./packages/main');
-generateUnifiedExport('./packages/other');
 
 /*
  * @name: 生成统一导出
@@ -33,7 +32,7 @@ function generateUnifiedExport(path) {
         }
     });
 
-    content += `\nexport {\n    ${folders.join(',\n    ')}\n};\n`;
+    content += `\nexport default {\n    ${folders.join(',\n    ')}\n};\n`;
 
     writerStream.write(content, 'utf-8');
     writerStream.end();
