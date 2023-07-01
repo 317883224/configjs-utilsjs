@@ -33,6 +33,7 @@ function generateUnifiedExport(path) {
     });
 
     content += `\nexport default {\n    ${folders.join(',\n    ')}\n};\n`;
+    content += `\nexport {\n    ${folders.join(',\n    ')}\n};\n`;
 
     writerStream.write(content, 'utf-8');
     writerStream.end();

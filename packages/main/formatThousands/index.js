@@ -3,11 +3,12 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-04-21 15:40:18
+ * @LastEditTime: 2023-07-01 10:46:38
  * @Description: 格式化数值为千分符
  */
 
 import formatRound from '../formatRound/index.js';
+import isNumber from '../isNumber/index.js';
 
 /*
  * @name: 千分符
@@ -17,6 +18,7 @@ import formatRound from '../formatRound/index.js';
  * @return {string} 转换后的字符串
  */
 export default function formatThousands(value, separators = ',', decimalPlaces = null) {
+	if(!isNumber(value)) return value;
 	let valueArray = formatRound(value, decimalPlaces).split('.'); // 切分整数与小数
 
 	// 整数部分
