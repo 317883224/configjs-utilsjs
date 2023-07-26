@@ -6,7 +6,7 @@
     </head>
     <body>
         <p>调试页面</p>
-        <script type="module">
+        <!-- <script type="module">
             import { formatThousands, formatRound } from './main/index.js';
 
             const values = [
@@ -33,7 +33,7 @@
                     console.log(`${item[0]} 转换为`, formatThousands(item[0]));
                 }
             }
-        </script>
+        </script> -->
         <!-- <script type="module">
             import { dictionaryClassification, dictionarySort } from './other/index.js';
 
@@ -43,9 +43,9 @@
             console.log('dictionaryClassification', value, dictionaryClassification(value));
         </script> -->
         <!-- <script type="module">
-            import { formatMoneyUppercase } from './other/index.js';
+            import { formatMoneyUppercase } from './main/index.js';
 
-            const values = ['12313', '12313.69', '12313.6', '12313.90', '11000001100000', '1100013', '1010000', '1001000', '1000100', '1000010', '1000001', '1000000'];
+            const values = ['adsad', 12313, '12313.69', '12313.6', '12313.90', '11000001100000', '1100013', '1010000', '1001000', '1000100', '1000010', '1000001', '1000000'];
 
             for (let item of values) {
                 console.log(item, formatMoneyUppercase(item));
@@ -74,5 +74,13 @@
             console.log(value, valuecopy);
             console.log(value2, value2copy);
         </script> -->
+        <script type="module">
+            import { getUrlQuery, getURLSearchParams } from './main/index.js';
+
+            console.log('getUrlQuery', getUrlQuery(location.href));
+            console.log('getUrlQuery', getUrlQuery('http://localhost:8081/#/home?a=1&a=2&b=2'));
+            console.log('getURLSearchParams', getURLSearchParams(location.href));
+            console.log('getURLSearchParams', getURLSearchParams('http://localhost:8081/#/home?a=1&a=2&b=2'));
+        </script>
     </body>
 </html>

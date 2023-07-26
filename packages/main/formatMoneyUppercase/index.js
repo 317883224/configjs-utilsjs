@@ -1,10 +1,10 @@
 /*
  * @FileName: formatMoneyUppercase
- * @FilePath: \configjs-utilsjs\packages\other\formatMoneyUppercase\index.js
+ * @FilePath: \configjs-utilsjs\packages\main\formatMoneyUppercase\index.js
  * @Author: FYR
  * @Date: 2023-06-21 15:12:09
  * @LastEditors: FYR
- * @LastEditTime: 2023-06-21 16:57:36
+ * @LastEditTime: 2023-07-26 10:51:09
  * @Description: 格式化金额为大写
  */
 
@@ -17,7 +17,7 @@ import isNumber from '../isNumber/index.js';
  */
 export default function formatMoneyUppercase(data) {
     if (!isNumber(Number(data))) {
-        console.error('Uncaught TypeError: data not a number in formatMoneyUppercase(data)');
+        console.error(new TypeError("value not a 'number': Invalid value"));
         return data;
     }
     let value = []; // 当前值
