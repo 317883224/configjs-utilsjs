@@ -4,7 +4,7 @@
  * @Author: FYR
  * @Date: 2023-07-27 11:44:46
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-27 15:01:47
+ * @LastEditTime: 2023-07-27 17:25:05
  * @Description: 请输入该文件的描述
  */
 
@@ -32,42 +32,51 @@ class CCreadREADME {
             output: process.stdout,
             terminal: false
         });
-        this.data[fileUrl] = {
-            key: fileUrl,
-            value: {
-                name: '',
-                description: '',
-                params: [],
-                return: [],
-                restrictions: '',
-                paramsDefaultValue: {}
-            }
+        const key = fileUrl.replace(/^.+\\([A-z0-9-]+)\\index\.js$/, '$1');
+
+        this.data[key] = {
+            name: '',
+            description: '',
+            params: [],
+            return: [],
+            restrictions: '',
+            paramsDefaultValue: {}
         };
-        rl.on('line', (line) => this.rlLine(line, fileUrl));
-        rl.on('close', () => this.rlClose(fileUrl));
+        rl.on('line', (line) => this.rlLine(line, key));
+        rl.on('close', () => this.rlClose(key));
     }
 
-    rlLine(line, fileUrl) {
-        this.data[fileUrl].value = CCreadREADME.getFileCursorModeData(this.data[fileUrl].value, line);
+    rlLine(line, key) {
+        this.data[key] = CCreadREADME.getFileCursorModeData(this.data[key], line);
     }
 
-    rlClose(fileUrl) {
-        this.markdownContent += CCreadREADME.getMarkdownContent(this.data[fileUrl].value);
+    rlClose(key) {
+        if (this.data[key]?.name)
+            this.markdownContent += CCreadREADME.getMarkdownContent(this.data[key]);
         this.total += 1;
         if (this.total === this.fileUrls.length) {
-            this.writeStream.write(
-                fs
-                    .readFileSync('./NPM.README.md', 'utf-8')
-                    .replace(/<!-- 通过nodejs生成的文档的标记 -->/g, this.markdownContent),
-                'utf-8'
-            );
+            let readmeTemplate = fs.readFileSync('./assets/readmeTemplate.md', 'utf-8');
+            let updateLog = fs.readFileSync('./assets/log.md', 'utf-8');
+
+            updateLog = updateLog.replace(/ [A-z0-9-]+ /g, (i) => {
+                const item = this.data[i.trim()];
+
+                if(item) {
+                    return `[${item.name}](#${item.name})（${item.description}）`
+                } else {
+                    return i;
+                }
+            });
+            readmeTemplate = readmeTemplate.replace(/<!-- 更新日志的标记 -->/, updateLog);
+            readmeTemplate = readmeTemplate.replace(/<!-- 通过nodejs生成的文档的标记 -->/, this.markdownContent);
+            this.writeStream.write(readmeTemplate, 'utf-8');
             this.writeStream.end();
         }
     }
 
     static getFileCursorModeData(data, line) {
-        line.replace(/\* @(name|description|restrictions): (.*)/, (value, val1, val2) => {
-            data[val1 === 'name' ? 'description' : val1] = val2;
+        line.replace(/\* @(description|restrictions): (.*)/, (value, val1, val2) => {
+            data[val1] = val2;
         });
         line.replace(/\* @(param) (.+)/, (value, val1, val2) => {
             const [a, b, ...c] = val2.split(' ');
@@ -77,7 +86,7 @@ class CCreadREADME {
             const [a, ...b] = val2.split(' ');
             data.return = [a, b.join(' ')];
         });
-        line.replace(/function (.+)\((.+)\)/, (value, val1, val2) => {
+        line.replace(/function (.+)\((.*)\)/, (value, val1, val2) => {
             const paramDefaultValue = val2.split(',');
             data.name = val1;
             paramDefaultValue.forEach((item) => {

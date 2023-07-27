@@ -1,10 +1,10 @@
 /*
  * @FileName: generateHex
- * @FilePath: \configjs-utilsjs\packages\other\generateHex\index.js
+ * @FilePath: \configjs-utilsjs\packages\main\generateHex\index.js
  * @Author: FYR
  * @Date: 2023-05-09 11:43:33
  * @LastEditors: FYR
- * @LastEditTime: 2023-05-09 11:44:45
+ * @LastEditTime: 2023-07-27 15:41:33
  * @Description: 生成hex类型的随机颜色
  */
 
