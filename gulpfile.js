@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-06-23 14:32:58
+ * @LastEditTime: 2023-07-27 17:58:27
  * @Description: gulp配置文件
  */
 
@@ -24,7 +24,7 @@ const convertFolder = env === 'serve' ? 'serve' : 'dist'; // 转换文件夹
 /*
  * 本地调试环境local
  */
-gulp.task('serve', function () {
+gulp.task('serve', function (cb) {
 	connect.server({
 		root: convertFolder,
 		port: 10000,
@@ -32,7 +32,8 @@ gulp.task('serve', function () {
 	});
 
 	watch('packages/**/*.html', gulp.series('html'));
-	watch(['packages/**/*.js', '!packages/main/index.js'], gulp.series('js'));
+	watch(['packages/**/*.js', '!packages/main/index.js'], gulp.series('js', 'generateUnifiedExport'));
+	cb();
 });
 
 /**
@@ -52,7 +53,6 @@ gulp.task('html', function () {
  */
 gulp.task('js', gulp.series(function () {
 	gutil.log('开始处理 js');
-	exec('node ./config/config.generateUnifiedExport.js');
 
 	return gulp.src(env === 'serve' ? ['packages/**/*.js'] : ['packages/**/*.js'])
 		.pipe(
@@ -90,10 +90,27 @@ gulp.task('jshint', function () {
 		.pipe(jshint.reporter('fail'))
 });
 
+gulp.task('generateUnifiedExport', function(cb) {
+	gutil.log('开始处理 生成统一导出js');
+	exec('node ./config/config.generateUnifiedExport.js');
+	cb();
+})
+
+gulp.task('npm', function(cb) {
+	gutil.log('开始生成 npm/package.json');
+	exec('node ./config/config.npm.js');
+	cb();
+})
+
+gulp.task('readme', function(cb) {
+	gutil.log('开始生成 README');
+	exec('node ./config/config.readme.js');
+	cb();
+})
 
 /**
  * 使用 gulp.task('default') 定义默认任务
  * 在命令行使用 gulp 启动 script 任务和 auto 任务
  */
-gulp.task('serve', gulp.series('clean', 'html', 'js', 'serve'))
-gulp.task('build', gulp.series('clean', 'js'))
+gulp.task('serve', gulp.series('clean', 'html', 'generateUnifiedExport', 'js', 'serve'))
+gulp.task('build', gulp.series('clean', 'generateUnifiedExport', 'js', 'npm', 'readme'))
