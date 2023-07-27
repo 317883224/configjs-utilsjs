@@ -9,7 +9,7 @@
  */
 
 /*
- * @name: 字典排序
+ * @description: 字典排序
  * @param {string[]} data 需要排序的值
  * @param {number} type 排序类型，0：默认 1：比默认多A-Z值
  * @return {string[]} 排序后的值

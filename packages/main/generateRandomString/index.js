@@ -3,13 +3,13 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2022-11-28 14:13:50
+ * @LastEditTime: 2023-07-27 15:19:36
  * @Description: 生成随机字符串
  */
 
 /*
- * @name: 生成随机字符串
- * @param {number} _length 生成长度
+ * @description: 生成随机字符串
+ * @param {number} length 生成长度
  * @param {string} chars 随机值，默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1
  * @return {string} 生成的字符串
  */

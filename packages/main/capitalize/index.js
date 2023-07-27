@@ -8,7 +8,7 @@
  */
 
 /*
- * @name: 首字母大写
+ * @description: 首字母大写
  * @param {string} value 需要转换的内容
  * @return {string} 转换后的字符串
  */

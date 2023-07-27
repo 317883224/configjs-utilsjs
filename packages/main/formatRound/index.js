@@ -1,18 +1,18 @@
 /*
  * @FileName: formatRound
- * @FilePath: \configjs-utilsjs\packages\js\formatRound\index.js
+ * @FilePath: \configjs-utilsjs\packages\main\formatRound\index.js
  * @Author: FYR
  * @Date: 2023-04-21 11:06:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-04-24 09:16:27
+ * @LastEditTime: 2023-07-27 15:05:01
  * @Description: 格式化数值为四舍五入
  */
 
 /*
- * @name: 四舍五入
- * @param {string|number} value 数值
- * @param {number} decimalPlaces 保留小数位
- * @return {string} 转换后的数值
+ * @description: 四舍五入
+ * @param {string|number} value 需要转千分符的值
+ * @param {number} decimalPlaces 数值保留小数位
+ * @return {string} 转换后的字符串
  */
 export default function formatRound(value, decimalPlaces = 0) {
     if (isNaN(Number(value))) return value;

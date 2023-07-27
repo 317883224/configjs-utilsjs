@@ -4,17 +4,17 @@
  * @Author: FYR
  * @Date: 2023-05-09 11:09:18
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-26 10:53:18
+ * @LastEditTime: 2023-07-27 14:56:38
  * @Description: 颜色RGB转HEX
  */
 
 import isNumber from '../isNumber/index.js';
 
 /*
- * @name: 颜色RGB转HEX
- * @param {0~255} r rgb中的r
- * @param {0~255} g rgb中的g
- * @param {0~255} b rgb中的b
+ * @description: 颜色RGB转HEX
+ * @param {number} r rgb中的r，可选值为0~255
+ * @param {number} g rgb中的g，可选值为0~255
+ * @param {number} b rgb中的b，可选值为0~255
  * @return {hex} 格式化后的颜色
  */
 export default function formatRgbToHex(r, g, b) {

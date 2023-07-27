@@ -4,7 +4,7 @@
  * @Author: FYR
  * @Date: 2023-04-12 15:29:48
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-26 14:15:28
+ * @LastEditTime: 2023-07-27 11:47:26
  * @Description: 生成npm配置文件的配置文件
  */
 
@@ -16,7 +16,8 @@ let packageData = require('../package.json') || {};
 packageData.private = false;
 delete packageData.scripts;
 delete packageData.devDependencies;
-writerStream.write(JSON.stringify(packageData),'utf-8');
+writerStream.write(JSON.stringify(packageData), 'utf-8');
 writerStream.end();
-fs.copyFileSync('./NPM.README.md', './dist/README.md');
-fs.renameSync('./dist/main', './dist/lib');
+try {
+    fs.renameSync('./dist/main', './dist/lib');
+} catch {}

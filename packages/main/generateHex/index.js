@@ -9,7 +9,7 @@
  */
 
 /*
- * @name: 生成hex类型的随机颜色
+ * @description: 生成hex类型的随机颜色
  * @return {hex} hex类型的随机颜色
  */
 export default function generateHex() {

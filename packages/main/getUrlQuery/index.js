@@ -9,7 +9,7 @@
  */
 
 /*
- * @name: 获取网址的参数
+ * @description: 获取网址的参数
  * @param {https|http} url 网址
  * @return {query} 网址的参数
  */

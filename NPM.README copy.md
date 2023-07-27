@@ -185,21 +185,6 @@ plugins: [
 | :---: | :----------: | :-------------------------: |
 | value | 转换后的数据 | formatValeu[] / foramtValue |
 
-#### format 详情说明
-<a id="formatTimesForamt"></a>
-| 参数  |  说明  | 范围  |
-| :---: | :----: | :---: |
-|   y   |   年   |  1~4  |
-|   M   |   月   |  1~2  |
-|   d   |   日   |  1~2  |
-|   h   |  小时  |  1~2  |
-|   m   |   分   |  1~2  |
-|   s   |   秒   |  1~2  |
-|   q   |  季度  |  1~2  |
-|   S   |  毫秒  |   1   |
-|   t   | 时间戳 |   1   |
-|   w   |  星期  |   1   |
-
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
 ### generateDateTimes（根据开始结束时间生成连续的时间数组）
@@ -411,6 +396,22 @@ plugins: [
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
+#### format 详情说明
+<a id="formatTimesForamt"></a>
+| 参数  |  说明  | 范围  |
+| :---: | :----: | :---: |
+|   y   |   年   |  1~4  |
+|   M   |   月   |  1~2  |
+|   d   |   日   |  1~2  |
+|   h   |  小时  |  1~2  |
+|   m   |   分   |  1~2  |
+|   s   |   秒   |  1~2  |
+|   q   |  季度  |  1~2  |
+|   S   |  毫秒  |   1   |
+|   t   | 时间戳 |   1   |
+|   w   |  星期  |   1   |
+
+<p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
 ## 联系方式
 

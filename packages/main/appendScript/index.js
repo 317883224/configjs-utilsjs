@@ -8,7 +8,7 @@
  */
 
 /*
- * @name: body 添加 js 标签
+ * @description: body 添加 js 标签
  * @param {url} url 添加的链接
  * @return {boolean} 是否添加成功
  */

@@ -8,7 +8,7 @@
   "homepage": "https://www.npmjs.com/package/configjs-utilsjs",
   "scripts": {
     "serve": "gulp serve",
-    "build": "gulp build && node ./config/config.npm.js",
+    "build": "gulp build && node ./config/config.npm.js && node ./config/npmREADME.js",
     "lib": "npm run build",
     "jshint": "gulp jshint"
   },

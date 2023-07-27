@@ -3,27 +3,18 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-04-21 15:37:01
- * @Description: 根据数据生成日期快捷 el-date Shortcuts用
+ * @LastEditTime: 2023-07-27 15:16:32
+ * @Description: 根据数据生成日期快捷，element-ui el-date Shortcuts 专用
  */
 
-/******************************** 根据数据生成日期快捷 el-date Shortcuts用 **********************************
- *
- ************属性 attr
- * 	参数			        说明					类型					可选值				默认值
- * 	dateArray 			根据数据生成日期快捷			array					--					-
- * 	valueFormat 		生成的时间类型 				string					--					-
- *
- * ************dateArray item
- * 	参数			    说明							类型				        可选值		        默认值
- * 	text 			名称			                string  			    --			        -
- *  y 				距离当前年限					string number           --                  --
- * 	M 				距离当前月限					string number           --                  --
- * 	d 				距离当前日限					string number           --                  --
- *****************************/
 import formatTimes from '../formatTimes/index.js';
 
-
+/*
+ * @description: 根据数据生成日期快捷，element-ui专用
+ * @param {array} dateArray 根据数据生成日期快捷
+ * @param {string} valueFormat 生成的时间类型
+ * @return {array} 生成的日期快捷el-date Shortcuts的值
+ */
 export default function generateDateShortcuts(dateArray, valueFormat) {
 	return dateArray.map((item) => {
 		return {

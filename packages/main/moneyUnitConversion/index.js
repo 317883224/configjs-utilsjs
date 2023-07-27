@@ -9,7 +9,7 @@
  */
 
 /*
- * @name: 金额的单位转换功能
+ * @description: 金额的单位转换功能
  * @param {number} money 金额
  * @param {number} decimal 保留的小数
  * @return {[number, string]} [转换后的金额, 金额单位]

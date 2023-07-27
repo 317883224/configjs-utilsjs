@@ -3,15 +3,15 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-04-21 15:36:53
+ * @LastEditTime: 2023-07-27 15:10:44
  * @Description: 时间转换
  */
 
 /*
- * @name: 时间转换
- * @param {array[data]|date} times 时间
- * @param {string} format 时间转换类型
- * @return {array[formatValeu]|foramtValue}
+ * @description: 时间转换
+ * @param {date[]|date} times 时间
+ * @param {string} format 时间转换类型 具体写法看[详情](#formatTimesForamt)
+ * @return {foramtValue[]|foramtValue} 转换后的数据
  */
 export default function formatTimes(times, format = 'yyyy-MM-dd hh:mm:ss') {
 	if(!times) return times;

@@ -4,14 +4,14 @@
  * @Author: FYR
  * @Date: 2023-06-21 15:12:09
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-26 10:51:09
- * @Description: 格式化金额为大写
+ * @LastEditTime: 2023-07-27 14:55:19
+ * @Description: 金额大写
  */
 
 import isNumber from '../isNumber/index.js';
 
 /*
- * @name: 格式化金额为大写
+ * @description: 金额大写
  * @param {number} data 金额数值
  * @return {string} 大写的金额
  */

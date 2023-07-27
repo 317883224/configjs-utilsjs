@@ -3,19 +3,19 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2022-11-28 14:11:28
+ * @LastEditTime: 2023-07-27 15:11:37
  * @Description: 根据开始结束时间生成连续的时间数组
  */
 
 import formatTimes from '../formatTimes/index.js';
 
 /*
- * @name: 根据开始结束时间生成连续的时间数组
+ * @description: 根据开始结束时间生成连续的时间数组
  * @param {date} startTime 开始时间
  * @param {date} endTime 结束时间
- * @param {string} type 格式
- * @param {string} format 时间转换类型
- * @return {formatValue[]}
+ * @param {string} type 根据时间中的值来生成数组，可选值为y,M,d
+ * @param {string} format 时间转换类型，可选值为同时间转换方法的参数2
+ * @return {formatValue[]} 转换后的数据
  */
 export default function generateDateTimes(startTime, endTime, type = 'd', format) {
 	let dateTimes = [startTime];

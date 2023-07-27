@@ -9,7 +9,7 @@
  */
 
 /*
- * @name: 深拷贝
+ * @description: 深拷贝
  * @param {any} data 被拷贝值
  * @return {any} 拷贝出来的值
  */

@@ -11,10 +11,10 @@ import formatRound from '../formatRound/index.js';
 import isNumber from '../isNumber/index.js';
 
 /*
- * @name: 千分符
- * @param {string|number} value 数值
- * @param {string} separators 分隔符
- * @param {number} decimalPlaces 保留小数位
+ * @description: 千分符
+ * @param {string|number} value 需要转千分符的值
+ * @param {string} separators 千分符号
+ * @param {number|null} decimalPlaces 数值保留小数位，null为不需要处理
  * @return {string} 转换后的字符串
  */
 export default function formatThousands(value, separators = ',', decimalPlaces = null) {

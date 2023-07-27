@@ -9,7 +9,7 @@
 
 
 /*
- * @name: unicode解码工具
+ * @description: unicode解码工具
  * @param {string} value 需要解码的值
  * @return {string} 解后的码
  */
