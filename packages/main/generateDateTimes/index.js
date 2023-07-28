@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-27 15:11:37
+ * @LastEditTime: 2023-07-28 14:07:16
  * @Description: 根据开始结束时间生成连续的时间数组
  */
 
@@ -13,8 +13,8 @@ import formatTimes from '../formatTimes/index.js';
  * @description: 根据开始结束时间生成连续的时间数组
  * @param {date} startTime 开始时间
  * @param {date} endTime 结束时间
- * @param {string} type 根据时间中的值来生成数组，可选值为y,M,d
- * @param {string} format 时间转换类型，可选值为同时间转换方法的参数2
+ * @param {string} type 根据时间中的值来生成数组，具体区别看[详情](#generateDateTimes-type)，可选值为y,M,d
+ * @param {string} format 时间转换类型，具体写法看[详情](#formatTimes-foramt)
  * @return {formatValue[]} 转换后的数据
  */
 export default function generateDateTimes(startTime, endTime, type = 'd', format) {

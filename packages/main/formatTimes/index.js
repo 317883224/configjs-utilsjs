@@ -10,7 +10,7 @@
 /*
  * @description: 时间转换
  * @param {date[]|date} times 时间
- * @param {string} format 时间转换类型 具体写法看[详情](#formatTimesForamt)
+ * @param {string} format 时间转换类型，具体写法看[详情](#formatTimes-foramt)
  * @return {foramtValue[]|foramtValue} 转换后的数据
  */
 export default function formatTimes(times, format = 'yyyy-MM-dd hh:mm:ss') {

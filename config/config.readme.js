@@ -4,7 +4,7 @@
  * @Author: FYR
  * @Date: 2023-07-27 11:44:46
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-28 11:49:26
+ * @LastEditTime: 2023-07-28 13:54:23
  * @Description: 请输入该文件的描述
  */
 
@@ -75,25 +75,28 @@ class CCreadREADME {
     }
 
     static getFileCursorModeData(data, line) {
-        line.replace(/\* @(description|restrictions): (.*)/, (value, val1, val2) => {
-            data[val1] = val2;
-        });
-        line.replace(/\* @(param) (.+)/, (value, val1, val2) => {
-            const [a, b, ...c] = val2.split(' ');
+        let value = null;
+
+        if(value = line.match(/\* @(description|restrictions): (.*)/)) {
+            data[value[1]] = value[2];
+        } else if(value = line.match(/\* @(param) (.+)/)) {
+            const [a, b, ...c] = value[2].split(' ');
+
             data.params.push([a, b, c.join(' ')]);
-        });
-        line.replace(/\* @(return) (.+)/, (value, val1, val2) => {
-            const [a, ...b] = val2.split(' ');
+        } else if(value = line.match(/\* @(return) (.+)/)) {
+            const [a, ...b] = value[2].split(' ');
+
             data.return = [a, b.join(' ')];
-        });
-        line.replace(/function (.+)\((.*)\)/, (value, val1, val2) => {
-            const paramDefaultValue = val2.split(',');
-            data.name = val1;
+        } else if(value = line.match(/function (.+)\((.*)\)/)) {
+            const paramDefaultValue = value[2].split(',');
+
+            data.name = value[1];
             paramDefaultValue.forEach((item) => {
                 const value = item.split('=');
                 data.paramsDefaultValue[value[0].trim()] = value[1];
             });
-        });
+        }
+
         return data;
     }
 
