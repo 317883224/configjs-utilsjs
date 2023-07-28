@@ -4,7 +4,7 @@
  * @Author: FYR
  * @Date: 2023-07-27 11:44:46
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-28 14:23:24
+ * @LastEditTime: 2023-07-28 15:06:31
  * @Description: 请输入该文件的描述
  */
 
@@ -64,7 +64,7 @@ class CCreadREADME {
             .map((item) => CCreadREADME.getMarkdownContent(item))
             .join('');
 
-        updateLog = updateLog.replace(/ [A-z0-9-]+ /g, (i) => {
+        updateLog = updateLog.replace(/\s[A-z0-9-]+\s/g, (i) => {
             const item = this.data[i.trim()];
 
             if (item?.name) {
@@ -84,21 +84,17 @@ class CCreadREADME {
 
         if ((value = line.match(/\* @(description|restrictions): (.*)/))) {
             data[value[1]] = value[2];
-        } else if ((value = line.match(/\* @(param) (.+)/))) {
-            const [a, b, ...c] = value[2].split(' ');
-
-            data.params.push([a, b, c.join(' ')]);
-        } else if ((value = line.match(/\* @(return) (.+)/))) {
-            const [a, ...b] = value[2].split(' ');
-
-            data.return = [a, b.join(' ')];
-        } else if ((value = line.match(/function (.+)\((.*)\)/))) {
-            const paramDefaultValue = value[2].split(',');
+        } else if ((value = line.match(/\* @param {(\S+)}\s(\S+)\s(.+)/))) {
+            data.params.push([value[1], value[2], value[3]]);
+        } else if ((value = line.match(/\* @return\s{(\S+)}\s(.+)/))) {
+            data.return = [value[1], value[2]];
+        } else if ((value = line.match(/function\s(\S+)\((.*)\)/))) {
+            const paramDefaultValue = value[2].split(/,\s?/);
 
             data.name = value[1];
             paramDefaultValue.forEach((item) => {
-                const value = item.split('=');
-                data.paramsDefaultValue[value[0].trim()] = value[1];
+                const value = item.split(/\s?=\s?/);
+                data.paramsDefaultValue[value[0]] = value[1];
             });
         }
 
