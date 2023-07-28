@@ -71,7 +71,7 @@ console.log(time);
 <!-- 通过nodejs生成的文档的标记 -->
 
 <a id="formatTimes-foramt"></a>
-#### formatTimes-foramt 详情说明
+### formatTimes-foramt 详情说明
 
 | 参数  |  说明  | 范围  |
 | :---: | :----: | :---: |
@@ -89,7 +89,7 @@ console.log(time);
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
 <a id="generateDateTimes-type"></a>
-#### generateDateTimes-type 详情说明
+### generateDateTimes-type 详情说明
 
 | 参数  |     说明     |  类型  | 可选值 | 默认值 |
 | :---: | :----------: | :----: | :----: | :----: |

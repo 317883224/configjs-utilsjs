@@ -4,7 +4,7 @@
  * @Author: FYR
  * @Date: 2023-07-27 11:44:46
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-28 13:54:23
+ * @LastEditTime: 2023-07-28 14:23:24
  * @Description: 请输入该文件的描述
  */
 
@@ -17,7 +17,6 @@ class CCreadREADME {
     total = 0;
     fileUrls = [];
     data = {};
-    markdownContent = '';
 
     constructor(fileUrls) {
         this.fileUrls = fileUrls;
@@ -43,51 +42,57 @@ class CCreadREADME {
             paramsDefaultValue: {}
         };
         rl.on('line', (line) => this.rlLine(line, key));
-        rl.on('close', () => this.rlClose(key));
+        rl.on('close', () => this.rlClose());
     }
 
     rlLine(line, key) {
         this.data[key] = CCreadREADME.getFileCursorModeData(this.data[key], line);
     }
 
-    rlClose(key) {
-        if (this.data[key]?.name)
-            this.markdownContent += CCreadREADME.getMarkdownContent(this.data[key]);
+    rlClose() {
         this.total += 1;
         if (this.total === this.fileUrls.length) {
-            let readmeTemplate = fs.readFileSync('./assets/readmeTemplate.md', 'utf-8');
-            let updateLog = fs.readFileSync('./assets/changlog.md', 'utf-8');
-
-            updateLog = updateLog.replace(/ [A-z0-9-]+ /g, (i) => {
-                const item = this.data[i.trim()];
-
-                if(item?.name) {
-                    return `[${item.name}](#${item.name})（${item.description}）`
-                } else {
-                    return i;
-                }
-            });
-            readmeTemplate = readmeTemplate.replace(/<!-- 更新日志的标记 -->/, updateLog);
-            readmeTemplate = readmeTemplate.replace(/<!-- 通过nodejs生成的文档的标记 -->/, this.markdownContent);
-            this.writeStream.write(readmeTemplate, 'utf-8');
-            this.writeStream.end();
+            this.allClose();
         }
+    }
+
+    allClose() {
+        let readmeTemplate = fs.readFileSync('./assets/readmeTemplate.md', 'utf-8');
+        let updateLog = fs.readFileSync('./assets/changlog.md', 'utf-8');
+        const markdownContent = Object.values(this.data)
+            .filter((item) => item.name)
+            .map((item) => CCreadREADME.getMarkdownContent(item))
+            .join('');
+
+        updateLog = updateLog.replace(/ [A-z0-9-]+ /g, (i) => {
+            const item = this.data[i.trim()];
+
+            if (item?.name) {
+                return `[${item.name}](#${item.name})（${item.description}）`;
+            } else {
+                return i;
+            }
+        });
+        readmeTemplate = readmeTemplate.replace(/<!-- 更新日志的标记 -->/, updateLog);
+        readmeTemplate = readmeTemplate.replace(/<!-- 通过nodejs生成的文档的标记 -->/, markdownContent);
+        this.writeStream.write(readmeTemplate, 'utf-8');
+        this.writeStream.end();
     }
 
     static getFileCursorModeData(data, line) {
         let value = null;
 
-        if(value = line.match(/\* @(description|restrictions): (.*)/)) {
+        if ((value = line.match(/\* @(description|restrictions): (.*)/))) {
             data[value[1]] = value[2];
-        } else if(value = line.match(/\* @(param) (.+)/)) {
+        } else if ((value = line.match(/\* @(param) (.+)/))) {
             const [a, b, ...c] = value[2].split(' ');
 
             data.params.push([a, b, c.join(' ')]);
-        } else if(value = line.match(/\* @(return) (.+)/)) {
+        } else if ((value = line.match(/\* @(return) (.+)/))) {
             const [a, ...b] = value[2].split(' ');
 
             data.return = [a, b.join(' ')];
-        } else if(value = line.match(/function (.+)\((.*)\)/)) {
+        } else if ((value = line.match(/function (.+)\((.*)\)/))) {
             const paramDefaultValue = value[2].split(',');
 
             data.name = value[1];
