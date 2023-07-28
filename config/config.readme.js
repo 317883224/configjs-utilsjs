@@ -1,10 +1,10 @@
 /*
  * @FileName: 请输入该文件的名称
- * @FilePath: \configjs-utilsjs\config\config.npmREADME.js
+ * @FilePath: \configjs-utilsjs\config\config.readme.js
  * @Author: FYR
  * @Date: 2023-07-27 11:44:46
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-27 17:25:05
+ * @LastEditTime: 2023-07-28 10:19:10
  * @Description: 请输入该文件的描述
  */
 
@@ -55,8 +55,8 @@ class CCreadREADME {
             this.markdownContent += CCreadREADME.getMarkdownContent(this.data[key]);
         this.total += 1;
         if (this.total === this.fileUrls.length) {
-            let readmeTemplate = fs.readFileSync('./assets/readmeTemplate.md', 'utf-8');
-            let updateLog = fs.readFileSync('./assets/log.md', 'utf-8');
+            let readmeTemplate = fs.readFileSync('./readmeTemplate.md', 'utf-8');
+            let updateLog = fs.readFileSync('./changlog.md', 'utf-8');
 
             updateLog = updateLog.replace(/ [A-z0-9-]+ /g, (i) => {
                 const item = this.data[i.trim()];

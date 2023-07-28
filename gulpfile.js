@@ -108,9 +108,14 @@ gulp.task('readme', function(cb) {
 	cb();
 })
 
+gulp.task('buildEnd', function(cb) {
+	gutil.log('打包完成');
+	cb();
+})
+
 /**
  * 使用 gulp.task('default') 定义默认任务
  * 在命令行使用 gulp 启动 script 任务和 auto 任务
  */
 gulp.task('serve', gulp.series('clean', 'html', 'generateUnifiedExport', 'js', 'serve'))
-gulp.task('build', gulp.series('clean', 'generateUnifiedExport', 'js', 'npm', 'readme'))
+gulp.task('build', gulp.series('clean', 'generateUnifiedExport', 'js', 'npm', 'readme', 'buildEnd'))
