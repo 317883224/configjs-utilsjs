@@ -19,18 +19,16 @@ configjs-utilsjs 是纯 js 方法库, 包含：时间转换，数字转换千分
 npm i configjs-utilsjs -S
 ```
 
-## 快速上手
+## 引入方法
 
-### 例子
+### 方式一. 自动按需引入 (推荐)
+babel-plugin-import 是一款 babel 插件，它会在编译过程中将 import 的写法自动转换为按需引入的方式。
 
 ```js
-// 需要引入的模块，需先安装 babel-plugin-import
-import { formatTimes } from 'configjs-utilsjs';
+// 安装插件
+npm i babel-plugin-import -D
 
-const time = formatTimes(new Date(), 'yyyy-MM-dd');
-console.log(time);
-
-// babel-plugin-import配置
+// 在 babel.config.js 中配置
 plugins: [
     [
         'import',
@@ -42,6 +40,30 @@ plugins: [
         'configjs-utilsjs'
     ]
 ];
+
+// 接着你可以在代码中直接使用
+import { formatTimes } from 'configjs-utilsjs';
+
+const time = formatTimes(new Date(), 'yyyy-MM-dd');
+console.log(time);
+```
+
+### 方式二. 手动按需引入
+```js
+import formatTimes from 'configjs-utilsjs/lib/formatTimes';
+
+const time = formatTimes(new Date(), 'yyyy-MM-dd');
+console.log(time);
+
+```
+
+### 方式三. 导入所有
+```js
+import configjsUtilsjs from 'configjs-utilsjs';
+
+const time = configjsUtilsjs.formatTimes(new Date(), 'yyyy-MM-dd');
+console.log(time);
+
 ```
 
 ## 文档
