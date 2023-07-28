@@ -1,10 +1,10 @@
 /*
  * @FileName: 请输入该文件的名称
- * @FilePath: \configjs-utilsjs\config\config.npmREADME.js
+ * @FilePath: \configjs-utilsjs\config\config.readme.js
  * @Author: FYR
  * @Date: 2023-07-27 11:44:46
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-27 17:25:05
+ * @LastEditTime: 2023-07-28 11:49:26
  * @Description: 请输入该文件的描述
  */
 
@@ -61,7 +61,7 @@ class CCreadREADME {
             updateLog = updateLog.replace(/ [A-z0-9-]+ /g, (i) => {
                 const item = this.data[i.trim()];
 
-                if(item) {
+                if(item?.name) {
                     return `[${item.name}](#${item.name})（${item.description}）`
                 } else {
                     return i;
