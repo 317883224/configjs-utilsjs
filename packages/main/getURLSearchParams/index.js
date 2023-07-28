@@ -9,7 +9,7 @@
  */
 
 /*
- * @description: 获取网址的参数，该方法调用 web api > URLSearchParams 方法
+ * @description: 获取网址的参数，该方法调用 WEB API > URLSearchParams 方法
  * @param {url|objectString} value 网址或者网址参数的字符串
  * @return {query} 网址的参数
  * @restrictions: 无法获取参数中数组的值，数组会覆盖取值，如 ?a=1&a=3&a=2 取值 {a: 2}
