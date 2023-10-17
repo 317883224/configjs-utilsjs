@@ -1,3 +1,8 @@
+### [4.5.0]
+-   优化
+    -   修改 appendLink 方法参数类型可传数组，同时修改返回值为Promise
+    -   修改 appendScript 方法参数类型可传数组，同时修改返回值为Promise
+
 ### [4.4.0]
 -   新特性
     -   新增 getURLSearchParams 方法

@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-27 15:19:36
+ * @LastEditTime: 2023-08-22 14:49:59
  * @Description: 生成随机字符串
  */
 
@@ -16,7 +16,7 @@
 export default function generateRandomString(length = 16, chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678') {
 	let charsLength = chars.length;
 	let keyStr = '';
-	for (i = 0; i < length; i++) {
+	for (let i = 0; i < length; i++) {
 		keyStr += chars.charAt(Math.floor(Math.random() * charsLength));
 	}
 	return keyStr;

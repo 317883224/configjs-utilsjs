@@ -4,8 +4,97 @@
         <meta charset="utf-8" />
         <title></title>
     </head>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .main {
+            color: #333;
+        }
+
+        .fun {
+            border: 1px solid #000;
+            margin: 10px;
+        }
+
+        .fun_name {
+            height: 30px;
+            border: 1px solid #000;
+            line-height: 30px;
+            margin: 6px;
+            padding: 0 20px;
+        }
+
+        .fun_content {
+            display: flex;
+            border: 1px solid #000;
+            margin: 6px;
+        }
+
+        .fun_content_params {
+            min-width: 300px;
+            flex-shrink: 0;
+            border-right: 1px solid #000;
+        }
+
+        .fun_content_output {
+            height: 100%;
+            flex-grow: 1;
+        }
+
+        .fun_content_params > div:first-child,
+        .fun_content_output > div:first-child {
+            text-align: center;
+            border-bottom: 1px solid #000;
+            padding: 4px 20px;
+        }
+
+        .fun_content_params > div:not(:first-child) {
+            padding: 6px;
+        }
+
+        .fun_content_params > div:nth-child(2) {
+            padding-top: 20px;
+        }
+
+        .fun_content_params > div:last-child {
+            padding-bottom: 20px;
+        }
+
+        .fun_content_output > div:not(:first-child) {
+            padding: 20px;
+        }
+
+        label {
+            vertical-align: top;
+        }
+
+        .funInput {
+            width: 200px;
+            color: #333;
+            font-size: inherit;
+            outline: 1px solid #000;
+            display: inline-block;
+            padding: 4px 10px;
+        }
+    </style>
     <body>
-        <p>调试页面</p>
+        <header>
+            <div>调试页面</div>
+            <div style="font-size: 0.6em; margin-top: 10px">
+                提示：由于判断不了参数具体使用时的类型，这里全部由eval转换，所以字符串类型需要加上引号，如 "字符串" 或
+                '字符串'
+            </div>
+        </header>
+        <main class="main"></main>
         <!-- <script type="module">
             import { formatThousands, formatRound } from './main/index.js';
 
@@ -74,13 +163,81 @@
             console.log(value, valuecopy);
             console.log(value2, value2copy);
         </script> -->
-        <script type="module">
+        <!-- <script type="module">
             import { getUrlQuery, getURLSearchParams } from './main/index.js';
 
-            console.log('getUrlQuery', getUrlQuery(location.href));
-            console.log('getUrlQuery', getUrlQuery('http://localhost:8081/#/home?a=1&a=2&b=2'));
-            console.log('getURLSearchParams', getURLSearchParams(location.href));
-            console.log('getURLSearchParams', getURLSearchParams('http://localhost:8081/#/home?a=1&a=2&b=2'));
-        </script>
+            const funName = 'getUrlQuery';
+            const funParams = getUrlQuery
+                .toString()
+                .match(/function\s[A-z0-9]+\(([^{]+)\){/)[1]
+                .split(/,\s?/);
+
+            console.log(funName, getUrlQuery(location.href));
+            console.log(funName, getUrlQuery('http://localhost:8081/#/home?a=1&a=2&b=2'));
+            // console.log('getURLSearchParams', getURLSearchParams(location.href));
+            // console.log('getURLSearchParams', getURLSearchParams('http://localhost:8081/#/home?a=1&a=2&b=2'));
+            document.querySelector('main').innerHTML = `
+                <div class="fun ${funName}">
+                    <div class="fun_name">方法：${funName}</div>
+                    <div class="fun_content">
+                        <div class="fun_content_params">
+                            <div>参数</div>
+                            ${(() => {
+                                let value = '';
+                                funParams.forEach((item, index) => {
+                                    value += `
+                                        <div class='fun_content_param'>
+                                            <label for="${funName}Input${index}">参数${index + 1}：</label>
+                                            <div id="${funName}Input${index}" class="${funName}Input funInput" contenteditable="true" value="${
+                                        item.split(/\s?=\s?/)?.[1] || ''
+                                    }"></div>
+                                        </div>
+                                    `;
+                                });
+                                return value;
+                            })()}
+                        </div>
+                        <div class="fun_content_output">
+                            <div>输出</div>
+                            <div class="${funName}outputContent"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            aaa();
+
+            document.querySelectorAll(`.${funName}Input`).forEach((item) => {
+                item.addEventListener('keyup', (e) => {
+                    e.preventDefault();
+                    if (!event.keyCode || event.keyCode === 13) {
+                        aaa();
+                    }
+                });
+            });
+
+            function aaa() {
+                const params = [];
+                let value = '';
+
+                document.querySelectorAll(`.${funName}Input`).forEach((item) => {
+                    try {
+                        params.push(eval(item.value));
+                    } catch (error) {
+                        alert(`${item.value}参数错误`);
+                    }
+                });
+                if (params.length === 0 || params.every((item) => item === undefined)) {
+                    value = '请输入参数';
+                } else {
+                    try {
+                        value = JSON.stringify(getUrlQuery(...params));
+                    } catch (error) {
+                        value = error;
+                    }
+                }
+
+                document.querySelector(`.${funName}outputContent`).innerHTML = value;
+            }
+        </script> -->
     </body>
 </html>

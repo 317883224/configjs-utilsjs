@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-27 17:58:27
+ * @LastEditTime: 2023-08-09 11:41:37
  * @Description: gulp配置文件
  */
 
@@ -28,6 +28,7 @@ gulp.task('serve', function (cb) {
 	connect.server({
 		root: convertFolder,
 		port: 10000,
+		host: '0.0.0.0',
 		livereload: true,
 	});
 
