@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-08-09 11:41:37
+ * @LastEditTime: 2023-10-26 10:54:12
  * @Description: gulp配置文件
  */
 
@@ -109,12 +109,6 @@ gulp.task('readme', function(cb) {
 	cb();
 })
 
-gulp.task('client', function(cb) {
-	gutil.log('开始生成 client.d.ts');
-	exec('node ./config/config.client.js');
-	cb();
-})
-
 gulp.task('buildEnd', function(cb) {
 	gutil.log('打包完成');
 	cb();
@@ -125,4 +119,4 @@ gulp.task('buildEnd', function(cb) {
  * 在命令行使用 gulp 启动 script 任务和 auto 任务
  */
 gulp.task('serve', gulp.series('clean', 'html', 'generateUnifiedExport', 'js', 'serve'))
-gulp.task('build', gulp.series('clean', 'generateUnifiedExport', 'js', 'npm', 'readme', 'client', 'buildEnd'))
+gulp.task('build', gulp.series('clean', 'generateUnifiedExport', 'js', 'npm', 'readme', 'buildEnd'))
