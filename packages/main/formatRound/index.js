@@ -10,7 +10,7 @@
 
 /*
  * @description: 四舍五入
- * @param {string|number} value 需要转千分符的值
+ * @param {string|number} value 需要四舍五入值
  * @param {number} decimalPlaces 数值保留小数位
  * @return {string} 转换后的字符串
  */
@@ -18,7 +18,6 @@ export default function formatRound(value, decimalPlaces = 0) {
     if (isNaN(Number(value))) return value;
     let valueArray = String(value).split('.'); // 根据小数点切分数据
 
-    /* 小数部分 */
     if (!valueArray[1]) valueArray[1] = '';
     if (decimalPlaces === 0) {
         return String(Math.round(value));
@@ -34,5 +33,5 @@ export default function formatRound(value, decimalPlaces = 0) {
 
     if (!valueArray[1]) valueArray.splice(1, 1);
 
-    return valueArray.join('.'); // 过滤小数为空
+    return valueArray.join('.');
 }

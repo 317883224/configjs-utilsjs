@@ -14,7 +14,7 @@
  * @param {number} decimal 保留的小数
  * @return {[number, string]} [转换后的金额, 金额单位]
  */
-export default function moneyUnitConversion(money, decimal) {
+export default function moneyUnitConversion(money, decimal = 0) {
     let value = 0;
     let unit = '元';
 

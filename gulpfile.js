@@ -109,6 +109,12 @@ gulp.task('readme', function(cb) {
 	cb();
 })
 
+gulp.task('client', function(cb) {
+	gutil.log('开始生成 client.d.ts');
+	exec('node ./config/config.client.js');
+	cb();
+})
+
 gulp.task('buildEnd', function(cb) {
 	gutil.log('打包完成');
 	cb();
@@ -119,4 +125,4 @@ gulp.task('buildEnd', function(cb) {
  * 在命令行使用 gulp 启动 script 任务和 auto 任务
  */
 gulp.task('serve', gulp.series('clean', 'html', 'generateUnifiedExport', 'js', 'serve'))
-gulp.task('build', gulp.series('clean', 'generateUnifiedExport', 'js', 'npm', 'readme', 'buildEnd'))
+gulp.task('build', gulp.series('clean', 'generateUnifiedExport', 'js', 'npm', 'readme', 'client', 'buildEnd'))

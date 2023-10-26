@@ -3,14 +3,14 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-17 16:39:36
+ * @LastEditTime: 2023-10-25 17:13:30
  * @Description: body 添加 js 标签
  */
 
 /*
  * @description: body 添加 js 标签
- * @param {url/url[]} files 添加的链接/链接列表
- * @return {promise} 添加结果
+ * @param {string|string[]} files 添加的链接/链接列表
+ * @return {PromiseConstructor} 添加结果
  */
 export default function appendScript(files) {
     return Promise.all(

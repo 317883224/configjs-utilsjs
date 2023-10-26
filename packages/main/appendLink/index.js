@@ -9,8 +9,8 @@
 
 /*
  * @description: body 添加 link 标签
- * @param {url/url[]} files 添加的链接/链接列表
- * @return {promise} 添加结果
+ * @param {string|string[]} files 添加的链接/链接列表
+ * @return {PromiseConstructor} 添加结果
  */
 export default function appendLink(files) {
     return Promise.all(

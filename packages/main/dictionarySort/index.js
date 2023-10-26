@@ -1,17 +1,17 @@
 /*
  * @FileName: dictionarySort
- * @FilePath: \configjs-utilsjs\packages\other\dictionarySort\index.js
+ * @FilePath: \configjs-utilsjs\packages\main\dictionarySort\index.js
  * @Author: FYR
  * @Date: 2023-06-17 13:54:54
  * @LastEditors: FYR
- * @LastEditTime: 2023-06-19 13:40:36
+ * @LastEditTime: 2023-10-25 17:39:17
  * @Description: 字典排序
  */
 
 /*
  * @description: 字典排序
  * @param {string[]} data 需要排序的值
- * @param {number} type 排序类型，0：默认 1：比默认多A-Z值
+ * @param {0|1} type 排序类型，0：默认 1：比默认多A-Z值
  * @return {string[]} 排序后的值
  */
 export default function dictionarySort(data, type = 0) {

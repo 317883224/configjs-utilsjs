@@ -3,21 +3,21 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-27 15:10:44
+ * @LastEditTime: 2023-10-26 09:31:57
  * @Description: 时间转换
  */
 
 /*
  * @description: 时间转换
- * @param {date[]|date} times 时间
+ * @param {Date[]|number[]|string[]|Date|number|string} times 时间
  * @param {string} format 时间转换类型，具体写法看[详情](#formatTimes-foramt)
- * @return {foramtValue[]|foramtValue} 转换后的数据
+ * @return {string[]|string|number[]|number} 转换后的数据
  */
 export default function formatTimes(times, format = 'yyyy-MM-dd hh:mm:ss') {
 	if(!times) return times;
 	let timesType = Array.isArray(times); //判断是否是数组
 	times = timesType ? times : [times];
-	times.forEach((item, index, array) => {
+	times.forEach((item, index) => {
 		let _item = format;
 		if(/^(\d{10}|\d{13})$/.test(item) && typeof item === 'string') item = Number(item);
 		item = new Date(item);
@@ -44,7 +44,7 @@ export default function formatTimes(times, format = 'yyyy-MM-dd hh:mm:ss') {
 				);
 			}
 		}
-		times[index] = _item;
+		times[index] = format === 't' ? Number(_item) : _item;
 	})
 	return timesType ? times : times[0];
 }
