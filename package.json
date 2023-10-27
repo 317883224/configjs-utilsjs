@@ -1,33 +1,55 @@
 {
-  "name": "configjs-utilsjs",
-  "version": "4.5.0",
-  "description": "工具类",
-  "main": "lib/index.js",
-  "private": true,
-  "repository": "https://github.com/317883224/configjs-utilsjs",
-  "homepage": "https://www.npmjs.com/package/configjs-utilsjs",
-  "scripts": {
-    "serve": "gulp serve",
-    "build": "gulp build",
-    "lib": "npm run build",
-    "jshint": "gulp jshint"
-  },
-  "keywords": [
-    "config",
-    "工具类"
-  ],
-  "author": "FYR",
-  "license": "ISC",
-  "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-clean": "^0.4.0",
-    "gulp-connect": "^5.7.0",
-    "gulp-jshint": "^2.1.0",
-    "gulp-notify": "^4.0.0",
-    "gulp-remove-logging": "^1.2.0",
-    "gulp-strip-debug": "^4.0.0",
-    "gulp-uglify": "^3.0.2",
-    "gulp-util": "^3.0.8",
-    "gulp-watch": "^5.0.1"
-  }
+    "name": "configjs-utilsjs",
+    "version": "4.5.0",
+    "description": "工具类",
+    "main": "./lib/index.js",
+    "types": "./lib/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./lib/index.d.ts",
+            "require": "./lib/index.js"
+        },
+        "./lib": {
+            "types": "./lib/index.d.ts",
+            "require": "./lib/index.js"
+        },
+        "./lib/*": {
+            "types": "./lib/*/index.d.ts",
+            "require": "./lib/*/index.js"
+        },
+        "./lib/**/*.js": {
+            "types": "./lib/**/*.d.ts",
+            "require": "./lib/**/*.js"
+        },
+        "./*": "./*"
+    },
+    "private": true,
+    "repository": "https://github.com/317883224/configjs-utilsjs",
+    "homepage": "https://www.npmjs.com/package/configjs-utilsjs",
+    "scripts": {
+        "serve": "gulp serve",
+        "build": "gulp build",
+        "lib": "npm run build",
+        "jshint": "gulp jshint"
+    },
+    "keywords": [
+        "config",
+        "工具类"
+    ],
+    "author": "FYR",
+    "license": "ISC",
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-clean": "^0.4.0",
+        "gulp-connect": "^5.7.0",
+        "gulp-jshint": "^2.1.0",
+        "gulp-notify": "^4.0.0",
+        "gulp-remove-logging": "^1.2.0",
+        "gulp-strip-debug": "^4.0.0",
+        "gulp-typescript": "^6.0.0-alpha.1",
+        "gulp-uglify": "^3.0.2",
+        "gulp-util": "^3.0.8",
+        "gulp-watch": "^5.0.1",
+        "typescript": "^5.2.2"
+    }
 }

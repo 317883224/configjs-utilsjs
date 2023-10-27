@@ -1,10 +1,10 @@
 /*
  * @FileName: dictionarySort
- * @FilePath: \configjs-utilsjs\packages\main\dictionarySort\index.js
+ * @FilePath: \configjs-utilsjs\packages\main\dictionarySort\index.ts
  * @Author: FYR
  * @Date: 2023-06-17 13:54:54
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-25 17:39:17
+ * @LastEditTime: 2023-10-26 16:15:10
  * @Description: 字典排序
  */
 
@@ -14,11 +14,11 @@
  * @param {0|1} type 排序类型，0：默认 1：比默认多A-Z值
  * @return {string[]} 排序后的值
  */
-export default function dictionarySort(data, type = 0) {
+export default function dictionarySort(data: string[], type: 0 | 1 = 0): string[] {
     const classificationCN = '阿八嚓哒妸发旮哈讥咔垃痳拏噢妑七呥扨它穵夕丫帀'.split(''); // 中文分类标签
     const classificationCNMapEN = 'ABCDEFGHJKLMNOPQRSTWXYZ'.split(''); // 中文映射到英文的分类标签
     const classificationEN = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''); // 英文分类标签
-    let values = [[], []]; // [英文分类，中文分类]
+    let values: string[][] = [[], []]; // [英文分类，中文分类]
 
     data.forEach((item) => {
         values[/[A-z]+/gi.test(item) ? 0 : 1].push(item);

@@ -1,10 +1,10 @@
 /*
  * @FileName: isDarkMode
- * @FilePath: \configjs-utilsjs\packages\other\a\index.js
+ * @FilePath: \configjs-utilsjs\packages\main\isDarkMode\index.ts
  * @Author: FYR
  * @Date: 2023-05-09 14:12:04
  * @LastEditors: FYR
- * @LastEditTime: 2023-05-09 14:13:37
+ * @LastEditTime: 2023-10-26 17:39:17
  * @Description: 判断设置主题是否为黑暗模式
  */
 
@@ -12,6 +12,6 @@
  * @description: 判断设置主题是否为黑暗模式
  * @return {boolean} 判断结果
  */
-export default function isDarkMode() {
+export default function isDarkMode(): boolean {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
 }

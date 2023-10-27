@@ -4,7 +4,7 @@
  * @Author: FYR
  * @Date: 2023-06-19 14:33:05
  * @LastEditors: FYR
- * @LastEditTime: 2023-06-23 14:38:30
+ * @LastEditTime: 2023-10-27 11:46:21
  * @Description: 生成统一导出
  */
 
@@ -18,7 +18,7 @@ generateUnifiedExport('./packages/main');
  * @param {string} path 路径
  */
 function generateUnifiedExport(path) {
-    const writerStream = fs.createWriteStream(resolve(`${path}/index.js`));
+    const writerStream = fs.createWriteStream(resolve(`${path}/index.ts`));
     const fileList = fs.readdirSync(resolve(path));
     let content = '';
     let folders = [];
@@ -27,7 +27,7 @@ function generateUnifiedExport(path) {
         const filePath = resolve(`${path}/${file}`);
 
         if (fs.statSync(filePath).isDirectory()) {
-            content += `import ${file} from "./${file}/index.js";\n`;
+            content += `import ${file} from "./${file}";\n`;
             folders.push(file);
         }
     });

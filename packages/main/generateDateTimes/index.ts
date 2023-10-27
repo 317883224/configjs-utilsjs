@@ -3,11 +3,11 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-26 09:34:15
+ * @LastEditTime: 2023-10-26 17:12:31
  * @Description: 根据开始结束时间生成连续的时间数组
  */
 
-import formatTimes from '../formatTimes/index.js';
+import formatTimes from '../formatTimes/index';
 
 /*
  * @description: 根据开始结束时间生成连续的时间数组
@@ -17,7 +17,7 @@ import formatTimes from '../formatTimes/index.js';
  * @param {string} format 时间转换类型，具体写法看[详情](#formatTimes-foramt)
  * @return {string[] | Date[] | number[]} 转换后的数据
  */
-export default function generateDateTimes(startTime, endTime, type = 'd', format) {
+export default function generateDateTimes(startTime: Date, endTime: Date, type: 'y' | 'M' | 'd' = 'd', format: string): string[] | number[] | Date[] {
     let dateTimes = [startTime];
     let interval = 0;
     switch (type) {
@@ -29,7 +29,7 @@ export default function generateDateTimes(startTime, endTime, type = 'd', format
                 (endTime.getFullYear() - startTime.getFullYear()) * 12 + (endTime.getMonth() - startTime.getMonth());
             break;
         case 'd':
-            interval = Math.floor((endTime - startTime) / (1000 * 60 * 60 * 24));
+            interval = Math.floor((endTime.getTime() - startTime.getTime()) / (1000 * 60 * 60 * 24));
             break;
         default:
     }
@@ -49,5 +49,5 @@ export default function generateDateTimes(startTime, endTime, type = 'd', format
         }
         dateTimes.push(_time);
     }
-    return format ? formatTimes(dateTimes, format) : dateTimes.reverse();
+    return format ? (formatTimes(dateTimes, format) as string[] | number[]) : dateTimes.reverse();
 }

@@ -1,10 +1,10 @@
 /*
  * @FileName: moneyUnitConversion
- * @FilePath: \configjs-utilsjs\examples\js\moneyUnitConversion\index.js
+ * @FilePath: \configjs-utilsjs\packages\main\moneyUnitConversion\index.ts
  * @Author: FYR
  * @Date: 2022-11-28 11:54:53
  * @LastEditors: FYR
- * @LastEditTime: 2022-11-28 11:58:58
+ * @LastEditTime: 2023-10-26 17:41:23
  * @Description: 金额的单位转换功能
  */
 
@@ -14,7 +14,7 @@
  * @param {number} decimal 保留的小数
  * @return {[number, string]} [转换后的金额, 金额单位]
  */
-export default function moneyUnitConversion(money, decimal = 0) {
+export default function moneyUnitConversion(money: number, decimal: number = 0): [number, string] {
     let value = 0;
     let unit = '元';
 

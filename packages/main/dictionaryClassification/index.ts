@@ -1,22 +1,22 @@
 /*
  * @FileName: dictionaryClassification
- * @FilePath: \configjs-utilsjs\packages\main\dictionaryClassification\index.js
+ * @FilePath: \configjs-utilsjs\packages\main\dictionaryClassification\index.ts
  * @Author: FYR
  * @Date: 2023-06-17 13:57:06
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-25 17:35:56
+ * @LastEditTime: 2023-10-26 16:16:22
  * @Description: 字典分类
  */
 
-import dictionarySort from '../dictionarySort/index.js';
+import dictionarySort from '../dictionarySort/index';
 
 /*
  * @description: 字典分类
  * @param {string[]} data 需要分类的值
  * @return {{[propName: string]: string[]}} 分类后的值
  */
-export default function dictionaryClassification(data) {
-    let values = []; // 内容
+export default function dictionaryClassification(data: string[]): {[propName: string]: string[]} {
+    let values: {[propName: string]: string[]} = {}; // 内容
     const paginationTagsEN = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
     const sortValue = dictionarySort(data, 1);
 

@@ -12,6 +12,6 @@
  * @param {string} value 需要转换的内容
  * @return {string} 转换后的字符串
  */
-export default function capitalize(value) {
+export default function capitalize(value: string): string {
 	return value.replace(/\b\w/, (item) => item.toUpperCase());
 }

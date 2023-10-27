@@ -1,14 +1,14 @@
 /*
  * @FileName: formatRgbToHex
- * @FilePath: \configjs-utilsjs\packages\main\formatRgbToHex\index.js
+ * @FilePath: \configjs-utilsjs\packages\main\formatRgbToHex\index.ts
  * @Author: FYR
  * @Date: 2023-05-09 11:09:18
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-25 17:44:43
+ * @LastEditTime: 2023-10-26 16:28:00
  * @Description: 格式化颜色 RGB 为 HEX
  */
 
-import isNumber from '../isNumber/index.js';
+import isNumber from '../isNumber/index';
 
 /*
  * @description: 格式化颜色 RGB 为 HEX
@@ -17,7 +17,7 @@ import isNumber from '../isNumber/index.js';
  * @param {number} b rgb中的b，可选值为0~255
  * @return {string} 格式化后的颜色
  */
-export default function formatRgbToHex(r, g, b) {
+export default function formatRgbToHex(r: number, g: number, b: number): string {
     r = Number(r);
     g = Number(g);
     b = Number(b);

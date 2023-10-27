@@ -12,8 +12,6 @@
  * @description: 生成hex类型的随机颜色
  * @return {string} hex类型的随机颜色
  */
-export default function generateHex() {
-    return `#${Math.floor(Math.random() * 0xffffff)
-        .toString(16)
-        .padEnd(6, '0')}`;
+export default function generateHex(): string {
+    return `#${(Math.floor(Math.random() * 0xffffff).toString(16) as any).padEnd(6, '0')}`;
 }

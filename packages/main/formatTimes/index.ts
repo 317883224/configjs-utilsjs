@@ -3,9 +3,12 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-26 09:31:57
+ * @LastEditTime: 2023-10-26 17:27:03
  * @Description: 时间转换
  */
+
+type TTimes = Date | number | string;
+type TReturn = number | string;
 
 /*
  * @description: 时间转换
@@ -13,15 +16,17 @@
  * @param {string} format 时间转换类型，具体写法看[详情](#formatTimes-foramt)
  * @return {string[]|string|number[]|number} 转换后的数据
  */
-export default function formatTimes(times, format = 'yyyy-MM-dd hh:mm:ss') {
+export default function formatTimes(times: TTimes | TTimes[], format: string = 'yyyy-MM-dd hh:mm:ss'): TReturn | TReturn[] {
 	if(!times) return times;
 	let timesType = Array.isArray(times); //判断是否是数组
-	times = timesType ? times : [times];
+	let values: TReturn[] = [];
+
+	times = (timesType ? times : [times]) as TTimes[];
 	times.forEach((item, index) => {
 		let _item = format;
-		if(/^(\d{10}|\d{13})$/.test(item) && typeof item === 'string') item = Number(item);
+		if(/^(\d{10}|\d{13})$/.test(String(item)) && typeof item === 'string') item = Number(item);
 		item = new Date(item);
-		const o = {
+		const o: {[index: string]: number} = {
 			"M+": item.getMonth() + 1, //月份
 			"d+": item.getDate(), //日
 			"h+": item.getHours(), //小时
@@ -40,11 +45,11 @@ export default function formatTimes(times, format = 'yyyy-MM-dd hh:mm:ss') {
 		for (let k in o) {
 			if (new RegExp("(" + k + ")").test(_item)) {
 				_item = _item.replace(
-					RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length))
+					RegExp.$1, (RegExp.$1.length == 1) ? String(o[k]) : (("00" + o[k]).substr(("" + o[k]).length))
 				);
 			}
 		}
-		times[index] = format === 't' ? Number(_item) : _item;
+		values[index] = format === 't' ? Number(_item) : _item;
 	})
-	return timesType ? times : times[0];
+	return timesType ? values : values[0];
 }

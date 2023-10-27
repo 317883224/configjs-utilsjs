@@ -3,17 +3,16 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2022-11-28 14:17:58
+ * @LastEditTime: 2023-10-26 17:32:17
  * @Description: unicode解码工具
  */
-
 
 /*
  * @description: unicode解码工具
  * @param {string} value 需要解码的值
  * @return {string} 解后的码
  */
-export default function getUnicode(value) {
+export default function getUnicode(value: string): string {
 	if (value && value.indexOf('\\u') !== -1) {
 		let valArr = value.split('\\u'),
 			result = '';

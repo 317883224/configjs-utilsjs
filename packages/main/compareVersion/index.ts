@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:38:14
  * @LastEditors: FYR
- * @LastEditTime: 2023-07-27 14:35:00
+ * @LastEditTime: 2023-10-26 16:01:26
  * @Description: 版本比较
  */
 
@@ -14,7 +14,7 @@
  * @param {string} separators 版本号分隔符
  * @return {number} 返回值 0: v2 > v1 1:v1 > v2 2: v1 = v2
  */
-export default function compareVersion(v1, v2, separators = '.') {
+export default function compareVersion(v1: string, v2: string, separators: string = '.'): 0 | 1 | 2 {
   let verson1 = v1.split(separators);
   let verson2 = v2.split(separators);
   const len = Math.max(v1.length, v2.length);
