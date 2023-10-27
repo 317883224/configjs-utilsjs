@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-26 15:54:38
+ * @LastEditTime: 2023-10-27 15:22:30
  * @Description: gulp配置文件
  */
 
@@ -18,6 +18,8 @@ var gutil = require('gulp-util');
 var watch = require('gulp-watch');
 var { exec } = require('child_process');
 var ts = require('gulp-typescript');
+var { generateUnifiedExport } = require('./config/config.generateUnifiedExport.js');
+const replace = require('gulp-replace');
 
 const env = process.argv.includes('serve') ? 'serve' : 'build'; // 当前环境 serve：本地环境 build：打包环境
 const convertFolder = env === 'serve' ? 'serve' : 'dist'; // 转换文件夹
@@ -27,7 +29,7 @@ const convertFolder = env === 'serve' ? 'serve' : 'dist'; // 转换文件夹
  */
 gulp.task('serve', function (cb) {
     connect.server({
-        root: convertFolder,
+        root: './',
         port: 10000,
         host: '0.0.0.0',
         livereload: true
@@ -40,8 +42,8 @@ gulp.task('serve', function (cb) {
  * 本地调试环境local
  */
 gulp.task('watch', function (cb) {
-    watch('packages/**/*.html', gulp.series('html'));
-    watch(['packages/**/*.ts', '!packages/main/index.ts'], gulp.series('generateUnifiedExport', 'js'));
+    watch('./**/*.html', gulp.series('html'));
+    watch(['packages/**/*.ts', '!packages/main/index.ts'], gulp.series('generateUnifiedExport', 'ts', 'js'));
     cb();
 });
 
@@ -51,7 +53,7 @@ gulp.task('watch', function (cb) {
 gulp.task('html', function () {
     gutil.log('开始处理 html');
 
-    return gulp.src('./packages/**/*.html').pipe(gulp.dest(convertFolder)).pipe(connect.reload());
+    return gulp.src('./**/*.html').pipe(connect.reload());
 });
 
 /*
@@ -77,9 +79,9 @@ gulp.task(
     'js',
     gulp.series(function () {
         gutil.log('开始处理 js');
-
         return gulp
             .src([`${convertFolder}/**/*.js`])
+            .pipe(replace(/(['"]\.{1,2}[/A-z0-9]+\/)(index)(['"]\;)/g, '$1index.js$3'))
             .pipe(
                 stripDebug({
                     methods: env === 'serve' ? [] : ['log']
@@ -118,7 +120,7 @@ gulp.task('jshint', function () {
 
 gulp.task('generateUnifiedExport', function (cb) {
     gutil.log('开始处理 生成统一导出js');
-    exec('node ./config/config.generateUnifiedExport.js');
+    generateUnifiedExport();
     cb();
 });
 

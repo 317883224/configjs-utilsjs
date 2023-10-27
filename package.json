@@ -1,6 +1,6 @@
 {
     "name": "configjs-utilsjs",
-    "version": "4.5.0",
+    "version": "5.0.0",
     "description": "工具类",
     "main": "./lib/index.js",
     "types": "./lib/index.d.ts",
@@ -13,9 +13,13 @@
             "types": "./lib/index.d.ts",
             "require": "./lib/index.js"
         },
-        "./lib/*": {
-            "types": "./lib/*/index.d.ts",
-            "require": "./lib/*/index.js"
+        "./lib/*.js": {
+            "types": "./lib/*.d.ts",
+            "require": "./lib/*.js"
+        },
+        "./lib/**": {
+            "types": "./lib/**/index.d.ts",
+            "require": "./lib/**/index.js"
         },
         "./lib/**/*.js": {
             "types": "./lib/**/*.d.ts",
@@ -45,6 +49,7 @@
         "gulp-jshint": "^2.1.0",
         "gulp-notify": "^4.0.0",
         "gulp-remove-logging": "^1.2.0",
+        "gulp-replace": "^1.1.4",
         "gulp-strip-debug": "^4.0.0",
         "gulp-typescript": "^6.0.0-alpha.1",
         "gulp-uglify": "^3.0.2",

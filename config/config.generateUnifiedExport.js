@@ -4,20 +4,25 @@
  * @Author: FYR
  * @Date: 2023-06-19 14:33:05
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-27 11:46:21
+ * @LastEditTime: 2023-10-27 14:51:47
  * @Description: 生成统一导出
  */
 
 const fs = require('fs');
 const { resolve } = require('path');
 
-generateUnifiedExport('./packages/main');
+/*
+ * @description: 生成统一导出
+ */
+function generateUnifiedExport() {
+    generateFile('./packages/main');
+}
 
 /*
- * @name: 生成统一导出
+ * @description: 生成文件
  * @param {string} path 路径
  */
-function generateUnifiedExport(path) {
+function generateFile(path) {
     const writerStream = fs.createWriteStream(resolve(`${path}/index.ts`));
     const fileList = fs.readdirSync(resolve(path));
     let content = '';
@@ -27,7 +32,7 @@ function generateUnifiedExport(path) {
         const filePath = resolve(`${path}/${file}`);
 
         if (fs.statSync(filePath).isDirectory()) {
-            content += `import ${file} from "./${file}";\n`;
+            content += `import ${file} from "./${file}/index";\n`;
             folders.push(file);
         }
     });
@@ -38,3 +43,5 @@ function generateUnifiedExport(path) {
     writerStream.write(content, 'utf-8');
     writerStream.end();
 }
+
+module.exports = { generateUnifiedExport };
