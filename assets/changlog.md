@@ -1,3 +1,14 @@
+### [5.0.1]
+-   优化
+    -   调整一些方法
+    -
+### [5.0.0]
+-   新特性
+    -   补充d.ts类型说明文件
+-   删除
+    -   删除 formatMoney 方法
+    -   删除 generateDateShortcuts 方法
+
 ### [4.5.0]
 -   优化
     -   修改 appendLink 方法参数类型可传数组，同时修改返回值为Promise

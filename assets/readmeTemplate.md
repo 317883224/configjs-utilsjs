@@ -88,18 +88,6 @@ console.log(time);
 
 <p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
 
-<a id="generateDateTimes-type"></a>
-### generateDateTimes-type 详情说明
-
-| 参数  |     说明     |  类型  | 可选值 | 默认值 |
-| :---: | :----------: | :----: | :----: | :----: |
-| text  |     名称     | string |        |   --   | -- |
-|   y   | 距离当前年限 | number |   --   |   --   |
-|   M   | 距离当前月限 | number |   --   |   --   |
-|   d   | 距离当前日限 | number |   --   |   --   |
-
-<p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>
-
 ## 联系方式
 
 -   qq 317883224@qq.com

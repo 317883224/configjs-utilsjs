@@ -4,11 +4,12 @@
  * @Author: FYR
  * @Date: 2023-07-27 11:44:46
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-30 11:12:18
+ * @LastEditTime: 2023-10-27 16:45:49
  * @Description: 请输入该文件的描述
  */
 
 const fs = require('fs');
+const readline = require('readline');
 const { resolve } = require('path');
 
 class CCreadREADME {
@@ -22,14 +23,15 @@ class CCreadREADME {
         fileUrls.forEach((item) => {
             this.play(item);
         });
-        this.allClose();
     }
 
     play(fileUrl) {
+        const rl = readline.createInterface({
+            input: fs.createReadStream(fileUrl),
+            output: process.stdout,
+            terminal: false
+        });
         const key = fileUrl.replace(/^.+\\([A-z0-9-]+)\\index\.ts$/, '$1');
-        const fileContent = JSON.stringify(fs.readFileSync(fileUrl, 'utf-8'));
-        let header = fileContent.match(/\/\*.+?\*\//g)[1].split(/\\r\\n/);
-        let params = fileContent.replace(/\\r\\n/g, '').match(/export default function.+\)\:\s/)[0];
 
         this.data[key] = {
             name: '',
@@ -39,9 +41,19 @@ class CCreadREADME {
             restrictions: '',
             paramsDefaultValue: {}
         };
-        [...header, params].forEach((item) => {
-            CCreadREADME.getFileCursorModeData(this.data[key], item);
-        });
+        rl.on('line', (line) => this.rlLine(line, key));
+        rl.on('close', () => this.rlClose());
+    }
+
+    rlLine(line, key) {
+        this.data[key] = CCreadREADME.getFileCursorModeData(this.data[key], line);
+    }
+
+    rlClose() {
+        this.total += 1;
+        if (this.total === this.fileUrls.length) {
+            this.allClose();
+        }
     }
 
     allClose() {
@@ -76,13 +88,13 @@ class CCreadREADME {
             data.params.push([value[1], value[2], value[3]]);
         } else if ((value = line.match(/\* @return\s{(.+)}\s(.+)/))) {
             data.return = [value[1].replace(/([<>])/g, '\\$1'), value[2]];
-        } else if ((value = line.match(/export\sdefault\sfunction\s([A-z0-9]+)(<.+>)?\((.*)\):\s/))) {
-            const paramDefaultValue = value[3].split(/,\s+?/);
+        } else if ((value = line.match(/export\sdefault\sfunction\s(\S+)\((.*)\)/))) {
+            const paramDefaultValue = value[2].split(/,\s?/);
 
             data.name = value[1];
             paramDefaultValue.forEach((item) => {
-                const value = item.split(/:.+=/);
-                data.paramsDefaultValue[value[0].replace(/\s/g, '').split(/\?:|:/)[0]] = value[1];
+                const value = item.split(/:\s.+\s=\s/);
+                data.paramsDefaultValue[value[0]] = value[1];
             });
         }
 
@@ -112,7 +124,9 @@ class CCreadREADME {
             value.push(`#### 返回 return`);
             value.push(`| 参数 | 说明 | 类型 |`);
             value.push(`| :---: | :---: | :---: |`);
-            value.push(`| value | ${data.return[1]} | ${data.return[0].replace(/\|/g, ' / ')} |`);
+            value.push(
+                `| value | ${data.return[1]} | ${data.return[0].replace(/\|/g, ' / ')} |`
+            );
             value.push('');
         }
         value.push(`<p style="width: 100%; height: 1px; background-color: #e4e7ed; margin-top: 28px;"></p>\n`);

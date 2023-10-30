@@ -13,7 +13,7 @@ import formatTimes from '../formatTimes/index';
  * @description: 根据开始结束时间生成连续的时间数组
  * @param {Date} startTime 开始时间
  * @param {Date} endTime 结束时间
- * @param {'y'|'M'|'d'} type 根据时间中的值来生成数组，具体区别看[详情](#generateDateTimes-type)，可选值为y,M,d
+ * @param {'y'|'M'|'d'} type 根据时间中的值来生成数组，具体区别看[详情](#generateDateTimes-type)，可选值为'y',"M","d"
  * @param {string} format 时间转换类型，具体写法看[详情](#formatTimes-foramt)
  * @return {string[] | Date[] | number[]} 转换后的数据
  */

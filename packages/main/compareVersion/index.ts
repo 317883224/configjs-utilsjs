@@ -3,16 +3,16 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:38:14
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-26 16:01:26
+ * @LastEditTime: 2023-10-27 16:06:29
  * @Description: 版本比较
  */
 
 /*
  * @description: 版本比较
  * @param {string} v1 被比较的版本1
- * @param {string} v2 被比较的版本1
+ * @param {string} v2 被比较的版本2
  * @param {string} separators 版本号分隔符
- * @return {number} 返回值 0: v2 > v1 1:v1 > v2 2: v1 = v2
+ * @return {0|1|2} 返回值 0: v2 > v1 1:v1 > v2 2: v1 = v2
  */
 export default function compareVersion(v1: string, v2: string, separators: string = '.'): 0 | 1 | 2 {
   let verson1 = v1.split(separators);
