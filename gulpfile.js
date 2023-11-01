@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-27 15:22:30
+ * @LastEditTime: 2023-11-01 17:20:21
  * @Description: gulp配置文件
  */
 
@@ -16,10 +16,10 @@ var notify = require('gulp-notify'); // 提示信息
 var connect = require('gulp-connect');
 var gutil = require('gulp-util');
 var watch = require('gulp-watch');
+const replace = require('gulp-replace');
 var { exec } = require('child_process');
 var ts = require('gulp-typescript');
 var { generateUnifiedExport } = require('./config/config.generateUnifiedExport.js');
-const replace = require('gulp-replace');
 
 const env = process.argv.includes('serve') ? 'serve' : 'build'; // 当前环境 serve：本地环境 build：打包环境
 const convertFolder = env === 'serve' ? 'serve' : 'dist'; // 转换文件夹
@@ -30,7 +30,7 @@ const convertFolder = env === 'serve' ? 'serve' : 'dist'; // 转换文件夹
 gulp.task('serve', function (cb) {
     connect.server({
         root: './',
-        port: 10000,
+        port: 20000,
         host: '0.0.0.0',
         livereload: true
     });
@@ -39,7 +39,7 @@ gulp.task('serve', function (cb) {
 });
 
 /*
- * 本地调试环境local
+ * 监听文件改变
  */
 gulp.task('watch', function (cb) {
     watch('./**/*.html', gulp.series('html'));

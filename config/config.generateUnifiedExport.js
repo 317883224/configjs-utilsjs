@@ -4,7 +4,7 @@
  * @Author: FYR
  * @Date: 2023-06-19 14:33:05
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-27 14:51:47
+ * @LastEditTime: 2023-11-01 11:54:40
  * @Description: 生成统一导出
  */
 
@@ -32,7 +32,9 @@ function generateFile(path) {
         const filePath = resolve(`${path}/${file}`);
 
         if (fs.statSync(filePath).isDirectory()) {
-            content += `import ${file} from "./${file}/index";\n`;
+            const description = fs.readFileSync(resolve(`${path}/${file}/index.js`), 'utf-8').match(/@Description: (.+)/)[1];
+
+            content += `import ${file} from "./${file}/index"; // ${description}\n`;
             folders.push(file);
         }
     });
