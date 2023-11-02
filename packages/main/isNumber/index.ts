@@ -5,11 +5,11 @@
  * @Date: 2023-05-09 11:22:24
  * @LastEditors: FYR
  * @LastEditTime: 2023-10-26 16:19:28
- * @Description: 是否为数字
+ * @Description: 判断数字是否合法
  */
 
 /*
- * @description: 判断是否为数字类型
+ * @description: 判断数字是否合法
  * @param {any} value 需要判断的值
  * @return {boolean} 判断结果
  */
