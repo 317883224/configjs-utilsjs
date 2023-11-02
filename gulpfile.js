@@ -30,7 +30,7 @@ const convertFolder = env === 'serve' ? 'serve' : 'dist'; // 转换文件夹
 gulp.task('serve', function (cb) {
     connect.server({
         root: './',
-        port: 20000,
+        port: 10000,
         host: '0.0.0.0',
         livereload: true
     });

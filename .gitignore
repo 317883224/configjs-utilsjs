@@ -5,7 +5,11 @@ dist/*
 lib/*
 serve/*
 packages/main/index.js
+packages/lib/index.js
 packages/other/index.js
+packages/main/index.ts
+packages/lib/index.ts
+packages/other/index.ts
 
 # local env files
 .env.local
