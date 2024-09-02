@@ -3,6 +3,7 @@
     "version": "5.1.1",
     "description": "工具类",
     "main": "./lib/index.js",
+    "type": "module",
     "types": "./lib/index.d.ts",
     "private": true,
     "repository": "https://github.com/317883224/configjs-utilsjs",
@@ -20,7 +21,14 @@
     "author": "FYR",
     "license": "ISC",
     "devDependencies": {
-        "gulp": "^4.0.2",
+        "@types/fancy-log": "^2.0.2",
+        "@types/gulp": "^4.0.17",
+        "@types/gulp-connect": "^5.0.9",
+        "@types/gulp-uglify": "^3.0.11",
+        "@types/gulp-watch": "^4.1.39",
+        "del": "^7.1.0",
+        "fancy-log": "^2.0.0",
+        "gulp": "^5.0.0",
         "gulp-clean": "^0.4.0",
         "gulp-connect": "^5.7.0",
         "gulp-jshint": "^2.1.0",
@@ -30,8 +38,9 @@
         "gulp-strip-debug": "^4.0.0",
         "gulp-typescript": "^6.0.0-alpha.1",
         "gulp-uglify": "^3.0.2",
-        "gulp-util": "^3.0.8",
         "gulp-watch": "^5.0.1",
+        "jshint": "^2.13.6",
+        "portfinder": "^1.0.32",
         "typescript": "^5.2.2"
     }
 }

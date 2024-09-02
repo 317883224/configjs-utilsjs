@@ -1,15 +1,15 @@
 /*
  * @FileName: config.generateUnifiedExport
- * @FilePath: \configjs-utilsjs\config\config.generateUnifiedExport.js
+ * @FilePath: \configjs-utilsjs\config\config.generateUnifiedExport.mjs
  * @Author: FYR
  * @Date: 2023-06-19 14:33:05
  * @LastEditors: FYR
- * @LastEditTime: 2023-11-02 10:29:22
+ * @LastEditTime: 2024-09-02 11:08:42
  * @Description: 生成统一导出
  */
 
-const fs = require('fs');
-const { resolve } = require('path');
+import { createWriteStream, readdirSync, statSync, readFileSync } from 'fs';
+import { resolve } from 'path';
 
 /*
  * @description: 生成统一导出
@@ -23,16 +23,16 @@ function generateUnifiedExport() {
  * @param {string} path 路径
  */
 function generateFile(path) {
-    const writerStream = fs.createWriteStream(resolve(`${path}/index.ts`));
-    const fileList = fs.readdirSync(resolve(path));
+    const writerStream = createWriteStream(resolve(`${path}/index.ts`));
+    const fileList = readdirSync(resolve(path));
     let content = '';
     let folders = [];
 
     fileList.forEach((file) => {
         const filePath = resolve(`${path}/${file}`);
 
-        if (fs.statSync(filePath).isDirectory()) {
-            const description = fs.readFileSync(resolve(`${path}/${file}/index.ts`), 'utf-8').match(/@Description: (.+)/)[1];
+        if (statSync(filePath).isDirectory()) {
+            const description = readFileSync(resolve(`${path}/${file}/index.ts`), 'utf-8').match(/@Description: (.+)/)[1];
 
             content += `import ${file} from "./${file}/index"; // ${description}\n`;
             folders.push(file);
@@ -46,4 +46,4 @@ function generateFile(path) {
     writerStream.end();
 }
 
-module.exports = { generateUnifiedExport };
+export { generateUnifiedExport };

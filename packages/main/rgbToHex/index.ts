@@ -11,7 +11,7 @@
 import isNumber from '../isNumber/index';
 
 /*
- * @description: 格式化颜色 RGB 为 HEX
+ * @description: RGB 转 HEX
  * @param {number} r rgb中的r，可选值为0~255
  * @param {number} g rgb中的g，可选值为0~255
  * @param {number} b rgb中的b，可选值为0~255
