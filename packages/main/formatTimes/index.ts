@@ -3,7 +3,7 @@
  * @Author: FYR
  * @Date: 2022-05-12 10:34:59
  * @LastEditors: FYR
- * @LastEditTime: 2024-11-07 16:41:55
+ * @LastEditTime: 2024-11-07 17:26:10
  * @Description: 时间转换
  */
 
@@ -17,13 +17,12 @@ type NotTimeValue<T> = T extends TimeValue | TimeValue[] ? never : T;
  * @param {string} format 时间转换类型，具体写法看[详情](#formatTimes-foramt)
  * @return {string[]|string|number[]|number} 转换后的数据
  */
-export default function formatTimes<T>(times: NotTimeValue<T>, format?: string): NotTimeValue<T>;
-export default function formatTimes(times: TimeValue, format?: string): FormatTimesReturn;
-export default function formatTimes(times: TimeValue[], format?: string): FormatTimesReturn[];
-export default function formatTimes(
-    value: TimeValue | TimeValue[] | undefined,
+export default function formatTimes<T>(times: TimeValue | NotTimeValue<T>, format?: string): FormatTimesReturn | NotTimeValue<T>;
+export default function formatTimes<T>(times: TimeValue[] | NotTimeValue<T>, format?: string): FormatTimesReturn[] | NotTimeValue<T>;
+export default function formatTimes<T>(
+    value: TimeValue | TimeValue[] | NotTimeValue<T>,
     format: string = 'yyyy-MM-dd hh:mm:ss'
-): FormatTimesReturn | FormatTimesReturn[] | undefined {
+): FormatTimesReturn | FormatTimesReturn[] | NotTimeValue<T> {
     if (!value) return value;
     let timesType = Array.isArray(value); //判断是否是数组
     let values: FormatTimesReturn[] = [];
@@ -61,3 +60,7 @@ export default function formatTimes(
     });
     return timesType ? values : values[0];
 }
+
+let a: undefined | number;
+
+const b = formatTimes(a);
