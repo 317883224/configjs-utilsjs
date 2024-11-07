@@ -4,14 +4,14 @@
  * @Author: FYR
  * @Date: 2023-04-12 15:29:48
  * @LastEditors: FYR
- * @LastEditTime: 2023-11-01 14:25:01
+ * @LastEditTime: 2024-11-07 15:13:43
  * @Description: 生成npm配置文件的配置文件
  */
+import fs from 'fs';
+import { resolve } from 'path';
 
-const fs = require('fs');
-const { resolve } = require('path');
 const writerStream = fs.createWriteStream(resolve('./dist/package.json'));
-let packageData = require('../package.json') || {};
+const packageData = JSON.parse(fs.readFileSync(resolve('./package.json'), 'utf-8') || '{}');
 
 packageData.private = false;
 delete packageData.scripts;

@@ -4,12 +4,11 @@
  * @Author: FYR
  * @Date: 2023-07-27 11:44:46
  * @LastEditors: FYR
- * @LastEditTime: 2023-10-30 11:12:18
+ * @LastEditTime: 2024-11-07 16:15:31
  * @Description: 请输入该文件的描述
  */
-
-const fs = require('fs');
-const { resolve } = require('path');
+import fs from 'fs';
+import { resolve } from 'path';
 
 class CCreadREADME {
     writeStream = fs.createWriteStream(resolve('./dist/README.md'));
@@ -29,7 +28,7 @@ class CCreadREADME {
         const key = fileUrl.replace(/^.+\\([A-z0-9-]+)\\index\.ts$/, '$1');
         const fileContent = JSON.stringify(fs.readFileSync(fileUrl, 'utf-8'));
         let header = fileContent.match(/\/\*.+?\*\//g)[1].split(/\\r\\n/);
-        let params = fileContent.replace(/\\r\\n/g, '').match(/export default function.+\)\:\s/)[0];
+        let params = fileContent.replace(/\\r\\n/g, '').match(/export default function[^;]+\)\:\s/g);
 
         this.data[key] = {
             name: '',
@@ -39,7 +38,7 @@ class CCreadREADME {
             restrictions: '',
             paramsDefaultValue: {}
         };
-        [...header, params].forEach((item) => {
+        [...header, ...params].forEach((item) => {
             CCreadREADME.getFileCursorModeData(this.data[key], item);
         });
     }
