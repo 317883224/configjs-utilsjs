@@ -9,6 +9,7 @@
 
 type TimeValue = Date | number | string;
 type FormatTimesReturn = number | string;
+type NotTimeValue<T> = T extends TimeValue | TimeValue[] ? never : T;
 
 /*
  * @description: 时间转换
@@ -16,7 +17,7 @@ type FormatTimesReturn = number | string;
  * @param {string} format 时间转换类型，具体写法看[详情](#formatTimes-foramt)
  * @return {string[]|string|number[]|number} 转换后的数据
  */
-export default function formatTimes(times: undefined, format?: string): undefined;
+export default function formatTimes<T>(times: NotTimeValue<T>, format?: string): NotTimeValue<T>;
 export default function formatTimes(times: TimeValue, format?: string): FormatTimesReturn;
 export default function formatTimes(times: TimeValue[], format?: string): FormatTimesReturn[];
 export default function formatTimes(
